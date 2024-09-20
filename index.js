@@ -24,10 +24,7 @@ import theme from './src/helpers/theme';
 // });
 
 const component = () => (
-    // <Provider store={store}>
-
-    <>
-
+    <Provider store={store}>
         <StatusBar barStyle="dark-content" backgroundColor="white" />
         <PaperProvider theme={theme}>
             <SafeAreaProvider>
@@ -36,9 +33,7 @@ const component = () => (
                 </NavigationContainer>
             </SafeAreaProvider>
         </PaperProvider>
-    </>
-
-    // </Provider>
+ </Provider>
 );
 
 AppRegistry.registerComponent(appName, () => component);

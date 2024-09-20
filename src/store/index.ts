@@ -22,7 +22,7 @@ import ContactsReducer from './modules/contacts/ContactsReducer';
 export const store = configureStore({
   reducer: {
     city: cityReducer,
-    user: userReducer,
+    // user: userReducer,
     // review: reviewReducer,
     // config: configReducer,
     // cart: cartReducer,
