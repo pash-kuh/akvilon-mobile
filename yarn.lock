@@ -2323,6 +2323,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-native-cookies/cookies@npm:^6.2.1":
+  version: 6.2.1
+  resolution: "@react-native-cookies/cookies@npm:6.2.1"
+  dependencies:
+    invariant: ^2.2.4
+  peerDependencies:
+    react-native: ">= 0.60.2"
+  checksum: 65ec7485952b719191cc3d131b1befdebdb0b422baaf655fd37ad6455ac05582a81b9d7f023ffa375a8787c30d33d1195dea46f633fb6cc09ccd2ae810795ce2
+  languageName: node
+  linkType: hard
+
 "@react-native/assets-registry@npm:0.75.3":
   version: 0.75.3
   resolution: "@react-native/assets-registry@npm:0.75.3"
@@ -3063,6 +3074,7 @@ __metadata:
     "@babel/preset-env": ^7.20.0
     "@babel/runtime": ^7.20.0
     "@react-native-async-storage/async-storage": ^2.0.0
+    "@react-native-cookies/cookies": ^6.2.1
     "@react-native/babel-preset": 0.75.3
     "@react-native/eslint-config": 0.75.3
     "@react-native/metro-config": 0.75.3
