@@ -1,0 +1,40 @@
+export type LiquidationItem = {
+  active: boolean;
+  additionalPoints: number;
+  badges: Array<string>;
+  balance: Array<object>;
+  brand: string;
+  calculatorEnable: boolean;
+  categoriesHierarchy: Array<string>;
+  clubPrice: number;
+  code: string;
+  dateReceipt: string | null;
+  daysOrder: string;
+  delivery: string;
+  discount: {
+    maxValue: number;
+    value: number;
+  };
+  ensTru: unknown;
+  externalId: string;
+  hideScore: boolean;
+  id: string;
+  isFavorite: boolean;
+  isOffline: boolean;
+  isSetEnabled: boolean;
+  name: string;
+  onOrder: boolean;
+  pickup: string;
+  pointsMultiplier: number;
+  pointsMultipliers: object;
+  price: number;
+  productCode: string;
+  status: number;
+  tnved: string;
+  unifyingProperties: Array<unknown>;
+  units: Array<object>;
+  vendorCode: string;
+  wholesalePrice?: boolean;
+};
+
+export type LiquidationList = LiquidationItem[];
