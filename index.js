@@ -7,21 +7,21 @@ import { Provider as PaperProvider } from 'react-native-paper';
 
 import App from './src/App';
 import { name as appName } from './app.json';
-// import { FirebaseNotification } from './src/helpers/firebase';
+import { FirebaseNotification } from './src/helpers/firebase';
 import { store } from './src/store/';
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import theme from './src/helpers/theme';
-// import AppMetrica from 'react-native-appmetrica';
+import AppMetrica from '@gennadysx/react-native-appmetrica';
 
-// const notification = new FirebaseNotification();
-// notification.requestUserPermission();
+const notification = new FirebaseNotification();
+notification.requestUserPermission();
 
-// AppMetrica.activate({
-//   apiKey: 'e340487a-04fd-43c8-9f0e-6c3aa8621ec4',
-//   sessionTimeout: 120,
-//   firstActivationAsUpdate: false,
-// });
+AppMetrica.activate({
+  apiKey: 'e340487a-04fd-43c8-9f0e-6c3aa8621ec4',
+  sessionTimeout: 120,
+  firstActivationAsUpdate: false,
+});
 
 const component = () => (
     <Provider store={store}>

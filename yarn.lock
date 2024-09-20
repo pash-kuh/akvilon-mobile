@@ -2230,6 +2230,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@gennadysx/react-native-appmetrica@npm:^2.7.0":
+  version: 2.7.0
+  resolution: "@gennadysx/react-native-appmetrica@npm:2.7.0"
+  peerDependencies:
+    react-native: ">=0.63.4"
+  checksum: d68f1f51dec58bdb4cdce90b869835137ea61e2bdc633996352c9417d07ab27515690769bdd11288ca80b6a30aaf4a45d512463f1d567aa67201d9fc4b72d4de
+  languageName: node
+  linkType: hard
+
 "@grpc/grpc-js@npm:~1.9.0":
   version: 1.9.15
   resolution: "@grpc/grpc-js@npm:1.9.15"
@@ -2955,6 +2964,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-native-community/push-notification-ios@npm:^1.11.0":
+  version: 1.11.0
+  resolution: "@react-native-community/push-notification-ios@npm:1.11.0"
+  dependencies:
+    invariant: ^2.2.4
+  peerDependencies:
+    react: ">=16.6.3"
+    react-native: ">=0.58.4"
+  checksum: d8c8cdd0d4e8112752a13bf2c426618ec8edd91eacadf03f05375648b5f12ffa761e8676e9d6ac9e5bc5ded73c991ab2219c67fe02e110dfaf38f4cb59695868
+  languageName: node
+  linkType: hard
+
 "@react-native-cookies/cookies@npm:^6.2.1":
   version: 6.2.1
   resolution: "@react-native-cookies/cookies@npm:6.2.1"
@@ -2963,6 +2984,15 @@ __metadata:
   peerDependencies:
     react-native: ">= 0.60.2"
   checksum: 65ec7485952b719191cc3d131b1befdebdb0b422baaf655fd37ad6455ac05582a81b9d7f023ffa375a8787c30d33d1195dea46f633fb6cc09ccd2ae810795ce2
+  languageName: node
+  linkType: hard
+
+"@react-native-firebase/analytics@npm:^20.5.0":
+  version: 20.5.0
+  resolution: "@react-native-firebase/analytics@npm:20.5.0"
+  peerDependencies:
+    "@react-native-firebase/app": 20.5.0
+  checksum: af59364f0b02d6f2e15c19dabc414a7bb512f4475b965691d8ac9296639140143ccc3e8eb374e0e1e8ebc5618af6015f33ff3b2ad8ee757bbd7bfb364003f789
   languageName: node
   linkType: hard
 
@@ -2980,6 +3010,32 @@ __metadata:
     expo:
       optional: true
   checksum: 107293fe8f5bd62923ad2a428dca6ff50817526a8a9829c831f7e64bdad6f5d940457555faeffea24b1213ea09fa19db553f45081c568906a845d3f5871bd96c
+  languageName: node
+  linkType: hard
+
+"@react-native-firebase/messaging@npm:^20.5.0":
+  version: 20.5.0
+  resolution: "@react-native-firebase/messaging@npm:20.5.0"
+  peerDependencies:
+    "@react-native-firebase/app": 20.5.0
+    expo: ">=47.0.0"
+  peerDependenciesMeta:
+    expo:
+      optional: true
+  checksum: 67235c7c5aaaac4986687760003829d74a88001fb9f1ff35f15e31b3933c8a1f6bc442e388a7f4f95ee5a8855cb1f1fc08946b3983eab77a04b7678f360f853e
+  languageName: node
+  linkType: hard
+
+"@react-native-firebase/perf@npm:^20.5.0":
+  version: 20.5.0
+  resolution: "@react-native-firebase/perf@npm:20.5.0"
+  peerDependencies:
+    "@react-native-firebase/app": 20.5.0
+    expo: ">=47.0.0"
+  peerDependenciesMeta:
+    expo:
+      optional: true
+  checksum: 0dac0a5efb0fe87c9593e36f6fdf66a180531e454a8c29749df1ac9047c46c711412b871def95b942d1014bff74215db4269b2c37994ebedc5f9766404216c10
   languageName: node
   linkType: hard
 
@@ -3732,9 +3788,14 @@ __metadata:
     "@babel/core": ^7.20.0
     "@babel/preset-env": ^7.20.0
     "@babel/runtime": ^7.20.0
+    "@gennadysx/react-native-appmetrica": ^2.7.0
     "@react-native-async-storage/async-storage": ^2.0.0
+    "@react-native-community/push-notification-ios": ^1.11.0
     "@react-native-cookies/cookies": ^6.2.1
+    "@react-native-firebase/analytics": ^20.5.0
     "@react-native-firebase/app": ^20.5.0
+    "@react-native-firebase/messaging": ^20.5.0
+    "@react-native-firebase/perf": ^20.5.0
     "@react-native-firebase/remote-config": ^20.5.0
     "@react-native/babel-preset": 0.75.3
     "@react-native/eslint-config": 0.75.3
@@ -3757,6 +3818,7 @@ __metadata:
     react-native-device-info: ^13.0.0
     react-native-paper: ^5.12.5
     react-native-permissions: ^4.1.5
+    react-native-push-notification: ^8.1.1
     react-native-reanimated: ^3.15.2
     react-native-safe-area-context: ^4.11.0
     react-native-webview: ^13.12.2
@@ -9136,6 +9198,16 @@ __metadata:
     react-native-windows:
       optional: true
   checksum: dc4b366a0f561a47f032c027eb703a2be45e801788b915ed583e38f617eea23656eb63a77b17fb3a663fe3199b2ec25788f799e751421634e35a64f5258feed9
+  languageName: node
+  linkType: hard
+
+"react-native-push-notification@npm:^8.1.1":
+  version: 8.1.1
+  resolution: "react-native-push-notification@npm:8.1.1"
+  peerDependencies:
+    "@react-native-community/push-notification-ios": ^1.10.1
+    react-native: ">=0.33"
+  checksum: 64d500c1163eaa4eee549e6e2f8204cac643f91ae918a227e9d93f8261afdebbdaa7ba5d12da0039155cbf6a599032dd15be4ebe53737cbeeadec4469893f00d
   languageName: node
   linkType: hard
 

@@ -4,11 +4,19 @@ PODS:
   - FBLazyVector (0.75.3)
   - Firebase (10.29.0):
     - Firebase/Core (= 10.29.0)
+  - Firebase/Analytics (10.29.0):
+    - Firebase/Core
   - Firebase/Core (10.29.0):
     - Firebase/CoreOnly
     - FirebaseAnalytics (~> 10.29.0)
   - Firebase/CoreOnly (10.29.0):
     - FirebaseCore (= 10.29.0)
+  - Firebase/Messaging (10.29.0):
+    - Firebase/CoreOnly
+    - FirebaseMessaging (~> 10.29.0)
+  - Firebase/Performance (10.29.0):
+    - Firebase/CoreOnly
+    - FirebasePerformance (~> 10.29.0)
   - Firebase/RemoteConfig (10.29.0):
     - Firebase/CoreOnly
     - FirebaseRemoteConfig (~> 10.29.0)
@@ -36,6 +44,8 @@ PODS:
     - FirebaseCoreInternal (~> 10.0)
     - GoogleUtilities/Environment (~> 7.12)
     - GoogleUtilities/Logger (~> 7.12)
+  - FirebaseCoreExtension (10.29.0):
+    - FirebaseCore (~> 10.0)
   - FirebaseCoreInternal (10.29.0):
     - "GoogleUtilities/NSData+zlib (~> 7.8)"
   - FirebaseInstallations (10.29.0):
@@ -43,6 +53,26 @@ PODS:
     - GoogleUtilities/Environment (~> 7.8)
     - GoogleUtilities/UserDefaults (~> 7.8)
     - PromisesObjC (~> 2.1)
+  - FirebaseMessaging (10.29.0):
+    - FirebaseCore (~> 10.0)
+    - FirebaseInstallations (~> 10.0)
+    - GoogleDataTransport (~> 9.3)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.8)
+    - GoogleUtilities/Environment (~> 7.8)
+    - GoogleUtilities/Reachability (~> 7.8)
+    - GoogleUtilities/UserDefaults (~> 7.8)
+    - nanopb (< 2.30911.0, >= 2.30908.0)
+  - FirebasePerformance (10.29.0):
+    - FirebaseCore (~> 10.5)
+    - FirebaseInstallations (~> 10.0)
+    - FirebaseRemoteConfig (~> 10.0)
+    - FirebaseSessions (~> 10.5)
+    - GoogleDataTransport (~> 9.2)
+    - GoogleUtilities/Environment (~> 7.13)
+    - GoogleUtilities/ISASwizzler (~> 7.13)
+    - GoogleUtilities/MethodSwizzler (~> 7.13)
+    - GoogleUtilities/UserDefaults (~> 7.13)
+    - nanopb (< 2.30911.0, >= 2.30908.0)
   - FirebaseRemoteConfig (10.29.0):
     - FirebaseABTesting (~> 10.0)
     - FirebaseCore (~> 10.0)
@@ -52,6 +82,15 @@ PODS:
     - GoogleUtilities/Environment (~> 7.8)
     - "GoogleUtilities/NSData+zlib (~> 7.8)"
   - FirebaseRemoteConfigInterop (10.29.0)
+  - FirebaseSessions (10.29.0):
+    - FirebaseCore (~> 10.5)
+    - FirebaseCoreExtension (~> 10.0)
+    - FirebaseInstallations (~> 10.0)
+    - GoogleDataTransport (~> 9.2)
+    - GoogleUtilities/Environment (~> 7.13)
+    - GoogleUtilities/UserDefaults (~> 7.13)
+    - nanopb (< 2.30911.0, >= 2.30908.0)
+    - PromisesSwift (~> 2.1)
   - FirebaseSharedSwift (10.29.0)
   - fmt (9.1.0)
   - glog (0.3.5)
@@ -75,6 +114,10 @@ PODS:
     - GoogleUtilities/Network (~> 7.11)
     - "GoogleUtilities/NSData+zlib (~> 7.11)"
     - nanopb (< 2.30911.0, >= 2.30908.0)
+  - GoogleDataTransport (9.4.1):
+    - GoogleUtilities/Environment (~> 7.7)
+    - nanopb (< 2.30911.0, >= 2.30908.0)
+    - PromisesObjC (< 3.0, >= 1.2)
   - GoogleUtilities (7.13.3):
     - GoogleUtilities/AppDelegateSwizzler (= 7.13.3)
     - GoogleUtilities/Environment (= 7.13.3)
@@ -128,6 +171,8 @@ PODS:
   - nanopb/decode (2.30910.0)
   - nanopb/encode (2.30910.0)
   - PromisesObjC (2.4.0)
+  - PromisesSwift (2.4.0):
+    - PromisesObjC (= 2.4.0)
   - RCT-Folly (2024.01.01.00):
     - boost
     - DoubleConversion
@@ -1358,6 +1403,9 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
+  - react-native-appmetrica (2.7.0):
+    - React
+    - YandexMobileMetrica (= 4.5.2)
   - react-native-cookies (6.2.1):
     - React-Core
   - react-native-safe-area-context (4.11.0):
@@ -1645,9 +1693,26 @@ PODS:
     - React-utils (= 0.75.3)
   - RNCAsyncStorage (2.0.0):
     - React-Core
+  - RNCPushNotificationIOS (1.11.0):
+    - React-Core
+  - RNDeviceInfo (13.0.0):
+    - React-Core
+  - RNFBAnalytics (20.5.0):
+    - Firebase/Analytics (= 10.29.0)
+    - React-Core
+    - RNFBApp
   - RNFBApp (20.5.0):
     - Firebase/CoreOnly (= 10.29.0)
     - React-Core
+  - RNFBMessaging (20.5.0):
+    - Firebase/Messaging (= 10.29.0)
+    - FirebaseCoreExtension
+    - React-Core
+    - RNFBApp
+  - RNFBPerf (20.5.0):
+    - Firebase/Performance (= 10.29.0)
+    - React-Core
+    - RNFBApp
   - RNFBRemoteConfig (20.5.0):
     - Firebase/RemoteConfig (= 10.29.0)
     - React-Core
@@ -1720,6 +1785,14 @@ PODS:
     - ReactCommon/turbomodule/core
     - Yoga
   - SocketRocket (0.7.0)
+  - YandexMobileMetrica (4.5.2):
+    - YandexMobileMetrica/Static (= 4.5.2)
+  - YandexMobileMetrica/Static (4.5.2):
+    - YandexMobileMetrica/Static/Core (= 4.5.2)
+    - YandexMobileMetrica/Static/Crashes (= 4.5.2)
+  - YandexMobileMetrica/Static/Core (4.5.2)
+  - YandexMobileMetrica/Static/Crashes (4.5.2):
+    - YandexMobileMetrica/Static/Core
   - Yoga (0.0.0)
 
 DEPENDENCIES:
@@ -1729,13 +1802,17 @@ DEPENDENCIES:
   - Firebase
   - FirebaseABTesting
   - FirebaseCore
+  - FirebaseCoreExtension
   - FirebaseCoreInternal
   - FirebaseInstallations
   - FirebaseRemoteConfig
+  - FirebaseSessions
   - fmt (from `../node_modules/react-native/third-party-podspecs/fmt.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
+  - GoogleDataTransport
   - GoogleUtilities
   - hermes-engine (from `../node_modules/react-native/sdks/hermes-engine/hermes-engine.podspec`)
+  - nanopb
   - RCT-Folly (from `../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec`)
   - RCT-Folly/Fabric (from `../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec`)
   - RCTDeprecation (from `../node_modules/react-native/ReactApple/Libraries/RCTFoundation/RCTDeprecation`)
@@ -1767,6 +1844,7 @@ DEPENDENCIES:
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
   - React-Mapbuffer (from `../node_modules/react-native/ReactCommon`)
   - React-microtasksnativemodule (from `../node_modules/react-native/ReactCommon/react/nativemodule/microtasks`)
+  - "react-native-appmetrica (from `../node_modules/@gennadysx/react-native-appmetrica`)"
   - "react-native-cookies (from `../node_modules/@react-native-cookies/cookies`)"
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - react-native-webview (from `../node_modules/react-native-webview`)
@@ -1797,7 +1875,12 @@ DEPENDENCIES:
   - ReactCodegen (from `build/generated/ios`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
+  - "RNCPushNotificationIOS (from `../node_modules/@react-native-community/push-notification-ios`)"
+  - RNDeviceInfo (from `../node_modules/react-native-device-info`)
+  - "RNFBAnalytics (from `../node_modules/@react-native-firebase/analytics`)"
   - "RNFBApp (from `../node_modules/@react-native-firebase/app`)"
+  - "RNFBMessaging (from `../node_modules/@react-native-firebase/messaging`)"
+  - "RNFBPerf (from `../node_modules/@react-native-firebase/perf`)"
   - "RNFBRemoteConfig (from `../node_modules/@react-native-firebase/remote-config`)"
   - RNPermissions (from `../node_modules/react-native-permissions`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
@@ -1809,16 +1892,23 @@ SPEC REPOS:
     - FirebaseABTesting
     - FirebaseAnalytics
     - FirebaseCore
+    - FirebaseCoreExtension
     - FirebaseCoreInternal
     - FirebaseInstallations
+    - FirebaseMessaging
+    - FirebasePerformance
     - FirebaseRemoteConfig
     - FirebaseRemoteConfigInterop
+    - FirebaseSessions
     - FirebaseSharedSwift
     - GoogleAppMeasurement
+    - GoogleDataTransport
     - GoogleUtilities
     - nanopb
     - PromisesObjC
+    - PromisesSwift
     - SocketRocket
+    - YandexMobileMetrica
 
 EXTERNAL SOURCES:
   boost:
@@ -1892,6 +1982,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   React-microtasksnativemodule:
     :path: "../node_modules/react-native/ReactCommon/react/nativemodule/microtasks"
+  react-native-appmetrica:
+    :path: "../node_modules/@gennadysx/react-native-appmetrica"
   react-native-cookies:
     :path: "../node_modules/@react-native-cookies/cookies"
   react-native-safe-area-context:
@@ -1952,8 +2044,18 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   RNCAsyncStorage:
     :path: "../node_modules/@react-native-async-storage/async-storage"
+  RNCPushNotificationIOS:
+    :path: "../node_modules/@react-native-community/push-notification-ios"
+  RNDeviceInfo:
+    :path: "../node_modules/react-native-device-info"
+  RNFBAnalytics:
+    :path: "../node_modules/@react-native-firebase/analytics"
   RNFBApp:
     :path: "../node_modules/@react-native-firebase/app"
+  RNFBMessaging:
+    :path: "../node_modules/@react-native-firebase/messaging"
+  RNFBPerf:
+    :path: "../node_modules/@react-native-firebase/perf"
   RNFBRemoteConfig:
     :path: "../node_modules/@react-native-firebase/remote-config"
   RNPermissions:
@@ -1971,18 +2073,24 @@ SPEC CHECKSUMS:
   FirebaseABTesting: d87f56707159bae64e269757a6e963d490f2eebe
   FirebaseAnalytics: 23717de130b779aa506e757edb9713d24b6ffeda
   FirebaseCore: 30e9c1cbe3d38f5f5e75f48bfcea87d7c358ec16
+  FirebaseCoreExtension: 705ca5b14bf71d2564a0ddc677df1fc86ffa600f
   FirebaseCoreInternal: df84dd300b561c27d5571684f389bf60b0a5c934
   FirebaseInstallations: 913cf60d0400ebd5d6b63a28b290372ab44590dd
+  FirebaseMessaging: 7b5d8033e183ab59eb5b852a53201559e976d366
+  FirebasePerformance: d0ac4aa90f8c1aedeb8d0329a56e2d77d8d9e004
   FirebaseRemoteConfig: 48ef3f243742a8d72422ccfc9f986e19d7de53fd
   FirebaseRemoteConfigInterop: 6efda51fb5e2f15b16585197e26eaa09574e8a4d
+  FirebaseSessions: dbd14adac65ce996228652c1fc3a3f576bdf3ecc
   FirebaseSharedSwift: 20530f495084b8d840f78a100d8c5ee613375f6e
   fmt: 4c2741a687cc09f0634a2e2c72a838b99f1ff120
   glog: 69ef571f3de08433d766d614c73a9838a06bf7eb
   GoogleAppMeasurement: f9de05ee17401e3355f68e8fc8b5064d429f5918
+  GoogleDataTransport: 6c09b596d841063d76d4288cc2d2f42cc36e1e2a
   GoogleUtilities: ea963c370a38a8069cc5f7ba4ca849a60b6d7d15
   hermes-engine: 8d2103d6c0176779aea4e25df6bb1410f9946680
   nanopb: 438bc412db1928dac798aa6fd75726007be04262
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
+  PromisesSwift: 9d77319bbe72ebf6d872900551f7eeba9bce2851
   RCT-Folly: 4464f4d875961fce86008d45f4ecf6cef6de0740
   RCTDeprecation: 4191f6e64b72d9743f6fe1a8a16e89e868f5e9e7
   RCTRequired: 9bb589570f2bb3abc6518761e3fd1ad9b7f7f06c
@@ -2012,6 +2120,7 @@ SPEC CHECKSUMS:
   React-logger: 4072f39df335ca443932e0ccece41fbeb5ca8404
   React-Mapbuffer: 714f2fae68edcabfc332b754e9fbaa8cfc68fdd4
   React-microtasksnativemodule: 4943ad8f99be8ccf5a63329fa7d269816609df9e
+  react-native-appmetrica: c606f811d799040dee1db43a4348bba9ef1b6816
   react-native-cookies: f54fcded06bb0cda05c11d86788020b43528a26c
   react-native-safe-area-context: 851c62c48dce80ccaa5637b6aa5991a1bc36eca9
   react-native-webview: 7aaf4bb5b2ec08901c821aceb4b55908ad012b04
@@ -2042,13 +2151,19 @@ SPEC CHECKSUMS:
   ReactCodegen: ff95a93d5ab5d9b2551571886271478eaa168565
   ReactCommon: 289214026502e6a93484f4a46bcc0efa4f3f2864
   RNCAsyncStorage: d35c79ffba52c1013013e16b1fc295aec2feabb6
+  RNCPushNotificationIOS: 64218f3c776c03d7408284a819b2abfda1834bc8
+  RNDeviceInfo: 55264dd7cc939dad6e9c231a7621311f5277f1dc
+  RNFBAnalytics: 6ffcca3c60f402775f59d23402287e14de97616b
   RNFBApp: 5f87753a8d8b37d229adf85cd0ff37709ffdf008
+  RNFBMessaging: 3fa1114c0868dd21f20dfe186adf42297ea316b1
+  RNFBPerf: e5cc00c3fe9cf4f119b444216dd18c396dcbd378
   RNFBRemoteConfig: 2867b9d3484b7aa86e095dcde8c333c029004bd0
   RNPermissions: 294531ede5a64d1528463e88fffef05675842042
   RNReanimated: ece067b779e0d6c7887c6bb80d381d0a0efd43c9
   SocketRocket: abac6f5de4d4d62d24e11868d7a2f427e0ef940d
+  YandexMobileMetrica: f5368ee93f286c793d73b58da00929babfc897c1
   Yoga: 4ef80d96a5534f0e01b3055f17d1e19a9fc61b63
 
-PODFILE CHECKSUM: d1c5ee617fa27949b8a5b1be005d59b9b893a251
+PODFILE CHECKSUM: 85cfd74b19d04e3012fcba9224b4dde175609559
 
 COCOAPODS: 1.15.2
