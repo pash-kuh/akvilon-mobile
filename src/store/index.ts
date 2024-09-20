@@ -24,7 +24,7 @@ export const store = configureStore({
     city: cityReducer,
     user: userReducer,
     // review: reviewReducer,
-    // config: configReducer,
+    config: configReducer,
     cart: cartReducer,
     webview: webviewReducer,
     mobileConfig: MobileConfigReducer,
