@@ -1,14 +1,14 @@
-import {Text} from 'react-native';
+import { Text } from 'react-native';
 import React from 'react';
-import {BRAND_RED_50, GREY_70} from '@src/assets/style/variable.style';
-import {icon, typography} from '@src/assets/style/typography.style';
+import { BRAND_RED_50, GREY_70 } from '@src/assets/style/variable.style';
+import { icon, typography } from '@src/assets/style/typography.style';
 import EmptyScreen from '@src/screens/EmptyScreen';
 import ProfileScreen from '@src/screens/Main/SettingsScreen/SettingsProfileScreen';
 import MainPageScreen from '@src/screens/Main/MainPageScreen';
 
 const tabBarIcon = (focused, iconText: string) => {
   if (focused) {
-    return <Text style={[icon(24), {color: BRAND_RED_50}]}>{iconText}</Text>;
+    return <Text style={[icon(24), { color: BRAND_RED_50 }]}>{iconText}</Text>;
   }
   return <Text style={icon(24)}>{iconText}</Text>;
 };
@@ -22,7 +22,7 @@ export default [
       headerShown: false,
       tabBarLabel: 'Главная',
       headerTitle: 'Главная',
-      tabBarIcon: ({focused}) => tabBarIcon(focused, ''),
+      tabBarIcon: ({ focused }) => tabBarIcon(focused, ''),
       tabBarActiveTintColor: BRAND_RED_50,
       tabBarInactiveTintColor: GREY_70,
       isWebView: false,
@@ -39,7 +39,7 @@ export default [
       headerShown: true,
       tabBarLabel: 'Каталог',
       headerTitle: 'Каталог',
-      tabBarIcon: ({focused}) => tabBarIcon(focused, ''),
+      tabBarIcon: ({ focused }) => tabBarIcon(focused, ''),
       tabBarActiveTintColor: BRAND_RED_50,
       tabBarInactiveTintColor: GREY_70,
       isWebView: true,
@@ -56,7 +56,7 @@ export default [
       headerShown: true,
       tabBarLabel: 'Поиск',
       headerTitle: 'Поиск',
-      tabBarIcon: ({focused}) => tabBarIcon(focused, ''),
+      tabBarIcon: ({ focused }) => tabBarIcon(focused, ''),
       tabBarActiveTintColor: BRAND_RED_50,
       tabBarInactiveTintColor: GREY_70,
       isWebView: true,
@@ -74,7 +74,7 @@ export default [
       headerShown: true,
       tabBarLabel: 'Корзина',
       headerTitle: 'Корзина',
-      tabBarIcon: ({focused}) => tabBarIcon(focused, ''),
+      tabBarIcon: ({ focused }) => tabBarIcon(focused, ''),
       tabBarActiveTintColor: BRAND_RED_50,
       tabBarInactiveTintColor: GREY_70,
       tabBarBadge: 2,
@@ -99,7 +99,7 @@ export default [
       headerShown: true,
       tabBarLabel: 'Профиль',
       headerTitle: 'Профиль',
-      tabBarIcon: ({focused}) => tabBarIcon(focused, ''),
+      tabBarIcon: ({ focused }) => tabBarIcon(focused, ''),
       tabBarActiveTintColor: BRAND_RED_50,
       tabBarInactiveTintColor: GREY_70,
       isWebView: false,

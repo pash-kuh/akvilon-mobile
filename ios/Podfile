@@ -19,6 +19,7 @@ pod 'FirebaseSessions', :modular_headers => true
 pod 'FirebaseCoreExtension', :modular_headers => true
 pod 'GoogleDataTransport', :modular_headers => true
 pod 'nanopb', :modular_headers => true
+pod 'React-RCTText', :path => '../node_modules/react-native/Libraries/Text', :modular_headers => true
 
 linkage = ENV['USE_FRAMEWORKS']
 if linkage != nil

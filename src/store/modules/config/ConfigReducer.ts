@@ -9,7 +9,7 @@ export const configSlice = createSlice({
       newAuth: '',
       test: '',
     },
-    apiUrl: 'api-akvilon-6263.akvilon.ratio-dev.ru/api/',
+    apiUrl: 'api.akvilon.kz/api/',
   },
   reducers: {
     setNewAuth(state, action) {

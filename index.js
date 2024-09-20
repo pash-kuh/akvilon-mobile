@@ -1,6 +1,6 @@
 
 import 'react-native-reanimated';
-import { AppRegistry, StatusBar } from 'react-native';
+import { AppRegistry, StatusBar, View, Text } from 'react-native';
 import { Provider } from 'react-redux';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Provider as PaperProvider } from 'react-native-paper';
@@ -14,13 +14,13 @@ import { NavigationContainer } from '@react-navigation/native';
 import theme from './src/helpers/theme';
 import AppMetrica from '@gennadysx/react-native-appmetrica';
 
-const notification = new FirebaseNotification();
-notification.requestUserPermission();
+// const notification = new FirebaseNotification();
+// notification.requestUserPermission();
 
 AppMetrica.activate({
-  apiKey: 'e340487a-04fd-43c8-9f0e-6c3aa8621ec4',
-  sessionTimeout: 120,
-  firstActivationAsUpdate: false,
+    apiKey: 'e340487a-04fd-43c8-9f0e-6c3aa8621ec4',
+    sessionTimeout: 120,
+    firstActivationAsUpdate: false,
 });
 
 const component = () => (
@@ -33,7 +33,7 @@ const component = () => (
                 </NavigationContainer>
             </SafeAreaProvider>
         </PaperProvider>
- </Provider>
+    </Provider>
 );
 
 AppRegistry.registerComponent(appName, () => component);
