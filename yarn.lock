@@ -3754,6 +3754,7 @@ __metadata:
     prettier: 2.8.8
     react: 18.3.1
     react-native: 0.75.3
+    react-native-device-info: ^13.0.0
     react-native-paper: ^5.12.5
     react-native-permissions: ^4.1.5
     react-native-reanimated: ^3.15.2
@@ -9096,6 +9097,15 @@ __metadata:
   version: 17.0.2
   resolution: "react-is@npm:17.0.2"
   checksum: 9d6d111d8990dc98bc5402c1266a808b0459b5d54830bbea24c12d908b536df7883f268a7868cfaedde3dd9d4e0d574db456f84d2e6df9c4526f99bb4b5344d8
+  languageName: node
+  linkType: hard
+
+"react-native-device-info@npm:^13.0.0":
+  version: 13.0.0
+  resolution: "react-native-device-info@npm:13.0.0"
+  peerDependencies:
+    react-native: "*"
+  checksum: c86822bcdad1bb9d3b93bd750e199964c562d83e076df2f0984e24cadd19db7f8258e125ddede102be2314ed8349d2da2b671c998f70571027b84449773c583a
   languageName: node
   linkType: hard
 
