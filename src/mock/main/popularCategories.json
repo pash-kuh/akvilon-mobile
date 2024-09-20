@@ -1,0 +1,18 @@
+{
+    "title": "Популярные категории",
+    "globalLink": {
+      "name": "Все категории",
+      "url": "/catalog/"
+    },
+    "images": {
+      "СТРОИТЕЛЬНЫЕ МАТЕРИАЛЫ": "constructionMaterials.png",
+      "ИНЖЕНЕРНЫЕ СИСТЕМЫ": "engineeringSystems.png",
+      "ЭЛЕКТРИКА": "electrician.png",
+      "ИНСТРУМЕНТ": "tools.png",
+      "КРЕПЕЖ": "fasteners.png",
+      "ИНТЕРЬЕР И ОТДЕЛКА": "interior.png",
+      "САНТЕХНИКА": "plumbing.png",
+      "ТОВАРЫ ДЛЯ ДОМА, САДА И ОТДЫХА": "gardenTools.png",
+      "Распродажа": "liquid.png"
+    }
+  }
