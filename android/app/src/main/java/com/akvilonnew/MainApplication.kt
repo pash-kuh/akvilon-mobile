@@ -1,4 +1,4 @@
-package com.akvilonnew
+package com.akvilonmobile
 
 import android.app.Application
 import com.facebook.react.PackageList

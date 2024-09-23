@@ -1,79 +1,132 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+<h1 style="text-align: center">Мобильное приложение AKVILON</h1>
 
-# Getting Started
+<h2 style="text-align: center">Ссылки</h2>
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+[Ноушен](https://www.notion.so/panfilovdigital/379d3739bff749ab9aa307860f627551)\
+[Документация Кода](https://github.com/quetzal19/akvilon-mobile/wiki/Exports)
 
-## Step 1: Start the Metro Server
+---
+<h2 style="text-align: center">Технический онбординг</h2>
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+<h3 style="text-align: center">Список библиотек</h3>
 
-To start Metro, run the following command from the _root_ of your React Native project:
+[react-native](https://reactnative.dev/)\
+[react-navigation](https://reactnavigation.org/)\
+[react-native-papper](https://reactnativepaper.com/)\
+[react-native-webview](https://github.com/react-native-webview/react-native-webview/tree/master/docs)\
+[redux](https://redux.js.org/)\
+[react-redux](https://react-redux.js.org/)\
+[redux-toolkit](https://redux-toolkit.js.org/)\
+[redux-thunk](https://www.npmjs.com/package/redux-thunk)\
+[react-native-firebase](https://rnfirebase.io/)\
+[@kichiyaki/react-native-barcode-generator](https://github.com/Kichiyaki/react-native-barcode-generator)\
+[@adrianso/react-native-device-brightness](https://www.npmjs.com/package/@adrianso/react-native-device-brightness)\
+[react-native-appmetrica](https://www.npmjs.com/package/react-native-appmetrica)\
+[react-native-device-info](https://github.com/react-native-device-info/react-native-device-info)\
+[react-native-image-filter-kit](https://www.npmjs.com/package/react-native-image-filter-kit)\
+[react-native-insta-story](https://www.npmjs.com/package/react-native-insta-story)\
+[react-native-linear-gradient](https://www.npmjs.com/package/react-native-linear-gradient)\
+[react-native-qrcode-svg](https://www.npmjs.com/package/react-native-qrcode-svg)\
+[react-native-torch](https://www.npmjs.com/package/react-native-torch)\
 
-```bash
-# using npm
-npm start
 
-# OR using Yarn
-yarn start
-```
+<h3 style="text-align: center">Основна</h3>
 
-## Step 2: Start your Application
+Для построение и разработки проекта используется [React-native](https://reactnative.dev/). 
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+<h3 style="text-align: center">Навигация</h3>
 
-### For Android
+Для внутренней навигации используется [React-navigation](https://reactnavigation.org/)
+В папке `/src/screens/*` - Находятся все экраны
+Структура:\
+*src\
+|\
+|- error - Сттраница ошибки вызывается в App.tsx\
+|----- index.tsx\
+|- home - Основной скрин вызывается в App.tsx\
+|--- cart - Навигация страницы\
+|----- index.tsx\
+|--- catalog - Навигация катаога\
+|----- index.tsx\
+|--- home - Навигация - Главной\
+|----- index.tsx\
+|--- settings - Навигация настроек\
+|----- bonus - Навигация с бонусами.\
+|------- index.tsx\
+|----- city - Навигация с выбором города.\
+|------- index.tsx\
+|----- profile - Навигация с детальными страницах проффиля\
+|------- sign - Навигация Авторизации\
+|--------- msg - Навигация получения СМС\
+|----------- index.tsx\
+|--------- signin - Навигация Авторизации\
+|----------- index.tsx\
+|--------- signup Навигация Регистрации\
+|----------- index.tsx\
+|--------- index.tsx\
+|------- index.tsx\
+|----- index.tsx\
+|--- webview - Основной компонент Webview\
+|----- index.tsx\
+|--- index.tsx\
+|- EmptyScreen.tsx\
 
-```bash
-# using npm
-npm run android
+Выходя из структуры можем понять пару правил:
+1. Все экраны имеют название index.tsx;
+2. Если должны быть сильные различия на страницах, то используем расширение index.android.tsx | index.ios.tsx;
+3. Все экраны лежат в отдельных папках;
+4. Структура дублирует роутинг внутри приложения.
 
-# OR using Yarn
-yarn android
-```
+<h3 style="text-align: center">Компоненты</h3>
 
-### For iOS
+В данный момент используются компоненты из библиотеки react-native-paper. 
+Есть самописные компоненты.
 
-```bash
-# using npm
-npm run ios
+Компоненты на главной странице:
+1. CustomLoader
+2. FlatList (Обёртка для главной страницы)
+3. CityHeader (Компонент с выбранным городом)
+4. Searchinput (Компонент с будущей доработкой по поиску на главной)
+5. Stories (Сторисы на главной)
+6. BonusCard (Компонент бонусной карты)
+7. CallComponent (Компонент заказа звонка для покупки или заказа)
+8. SliderImage (Слайдер с картинками из админки)
+9. PopularCategory (Компонент популярных категорий, 3х3 таблица)
+10. Slider (Содержит в себе списки товаров для категорий: "Новинки", "Распродажа")
+11. SliderBanner (Слайдер с баннерами из админки)
+12. Brands (Компонент со списком брендов)
+13. HelpFind (Компонент с чипсами для быстрой навигации в каталог)
+14. Support (Компонент тех. поддержки)
+15. MakeCallDrawer (Компонент заказа звонка)
 
-# OR using Yarn
-yarn ios
-```
+<h3 style="text-align: center">Замена иконок в приложении.</h3>
+Будут отличия для Android и iOS.
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+Для андройд необходимо пойти в папку /android/app/src/main/res
+В ней мы увидим список папок с названием drawable 
+В каждую из них необоходимо поместить наше изображение с иконкой в формате png, и названием
+ic_launcher_round
+Далее просто пересобрать приложение
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+Для iOS путь будем другим: /ios/akvilonmobile/Images.xcassets/AppIcon.appiconset
+В этой папке мы увидим список изображений с различными размерами. 
+Нам необходимо их заменить на новые, не изменяя их имени. Также в формате png.
 
-## Step 3: Modifying your App
+<h3 style="text-align: center">Версионность</h3>
 
-Now that you have successfully run the app, let's modify it.
+При добавлении функционала на фронт, который требует версии, прописываем проверку "if", и добавляем туда versionChecker('mobileVersionNumber', 'версия от которой должен быть виден функционал').
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+Из мобилки версия отправляется при помощи куков. В старых версиях приложения - при помощи параметров url.
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+Также с помощью куков передаётся версия мобильной системы и сама мобильная система (Android, iOS)
 
-## Congratulations! :tada:
+<h3 style="text-align: center">Деплой</h3>
 
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+1. В файле app.json - меняем версию. 
+2. В файле `${PROJECT_FOLDER}/android/app/build.gradle` - меняем версию, на такую же как в app.json
+3. В файле `${PROJECT_FOLDER}/android/app/build.gradle` - меняем версию билда, +1;
+4. Выключаем все открытые окна связанные с React-Native. Console | Metro Server | etc. 
+6. Для сборки АPK пишем - npm run test-build. Находится в папке android app build outputs apk release.
+7. Проверяем, чтобы APK версия, нормально работала на вашем устройстве
+8. Для сборки релиза aab пишем - npm run release-build.
+9. Далее выгружаем в сторы гугла и эпла. 

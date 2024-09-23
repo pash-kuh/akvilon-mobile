@@ -22,7 +22,7 @@ import {
 import dynamicLinks from '@react-native-firebase/dynamic-links';
 import DeviceInfo from 'react-native-device-info';
 import { getVersionNumber } from '@src/store/modules/user/UserActions';
-// import AppMetrica from '@gennadysx/react-native-appmetrica';
+import AppMetrica from '@gennadysx/react-native-appmetrica';
 import { LogBox } from 'react-native';
 LogBox.ignoreLogs(['new NativeEventEmitter']);
 
@@ -91,13 +91,13 @@ export default function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // AppMetrica.activate({
-  //   apiKey: 'e340487a-04fd-43c8-9f0e-6c3aa8621ec4',
-  //   sessionTimeout: 120,
-  //   firstActivationAsUpdate: false,
-  // });
+  AppMetrica.activate({
+    apiKey: 'e340487a-04fd-43c8-9f0e-6c3aa8621ec4',
+    sessionTimeout: 120,
+    firstActivationAsUpdate: false,
+  });
 
-  // AppMetrica.reportEvent('My event');
+  AppMetrica.reportEvent('My event');
 
   if (Main === null) {
     return null;
