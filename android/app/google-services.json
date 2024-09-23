@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "558784140300",
+    "project_id": "akvilon-99fe6",
+    "storage_bucket": "akvilon-99fe6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:558784140300:android:0a1a2f48c38eb7db4b0a29",
+        "android_client_info": {
+          "package_name": "com.akvilonmobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "558784140300-nau21srgvb9786a1mh6u9omsn3nn4psp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUxBfjm1F3mwqxWqOmRSrVgFXZAI_TQGE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "558784140300-nau21srgvb9786a1mh6u9omsn3nn4psp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "558784140300-bpd5n59pudugc7ttdhlmceqviu3ofgm5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.akvilonmobile"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
