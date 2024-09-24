@@ -341,7 +341,7 @@ function MainPageScreen() {
         //   style={style.container}
         //   data={[{}]}
         //   keyExtractor={() => null}
-        //   renderItem={() => (
+        //   renderItem={item => (
             <>
               <View style={{ flex: 0.8 }}>
                 {/* Компонент хэдера с поиском и городом */}
@@ -394,15 +394,15 @@ function MainPageScreen() {
               {/*    )}*/}
               {/*  </View>*/}
               {/*  /!* Компонент "Новинки" *!/*/}
-              {/*  {newProducts.length !== 0 && (*/}
-              {/*    <View style={style.liquidationSliderContainer}>*/}
-              {/*      <Slider*/}
-              {/*        array={newProducts}*/}
-              {/*        liquidation={false}*/}
-              {/*        title="Новинки"*/}
-              {/*      />*/}
-              {/*    </View>*/}
-              {/*  )}*/}
+                {newProducts.length !== 0 && (
+                  <View style={style.liquidationSliderContainer}>
+                    <Slider
+                      array={newProducts}
+                      liquidation={false}
+                      title="Новинки"
+                    />
+                  </View>
+                )}
               {/*  /!* Компонент с брендами *!/*/}
               {/*  <View style={style.brandsContainer}>*/}
               {/*    <Brands*/}
@@ -418,9 +418,9 @@ function MainPageScreen() {
                 </View>
               </View>
             </>
-      //     )}
-      //   />
-      )}
+          )}
+      {/*  />*/}
+      {/*)}*/}
       {/* Компонент тех. поддержки */}
       {!loading && !webview.loading && (
         <Pressable

@@ -10,7 +10,6 @@ import {
   Animated,
   Easing,
   Vibration,
-  PermissionsAndroid,
 } from 'react-native';
 import {runOnJS} from 'react-native-reanimated';
 import {
@@ -123,10 +122,8 @@ const BarcodeScanner = ({goHome, goNotFound, openProduct, city}) => {
   }, []);
 
   const checkCameraPermission = async () => {
-    const statusPermission = await PermissionsAndroid.check(
-      PermissionsAndroid.PERMISSIONS.CAMERA,
-    );
-    setHasPermission(statusPermission);
+    const statusPermission = await Camera.getCameraPermissionStatus();
+    setHasPermission(statusPermission === 'authorized');
     return () => {
       setHasPermission(false);
     };

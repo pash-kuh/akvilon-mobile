@@ -9,8 +9,7 @@ import {
   TouchableOpacity,
   Animated,
   Easing,
-  Vibration,
-  PermissionsAndroid,
+  Vibration
 } from 'react-native';
 
 import {runOnJS} from 'react-native-reanimated';
@@ -76,7 +75,7 @@ const BarcodeScanner = ({goHome, goNotFound, openProduct, city}) => {
     ).start();
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (isShowLoading) {
       handleAnimation();
     }
@@ -98,7 +97,7 @@ const BarcodeScanner = ({goHome, goNotFound, openProduct, city}) => {
       },
     ],
   };
-  React.useEffect(() => {
+  useEffect(() => {
     checkCameraPermission();
     return () => {
       setHasPermission(false);
@@ -106,10 +105,8 @@ const BarcodeScanner = ({goHome, goNotFound, openProduct, city}) => {
   }, []);
 
   const checkCameraPermission = async () => {
-    const statusPermission = await PermissionsAndroid.check(
-      PermissionsAndroid.PERMISSIONS.CAMERA,
-    );
-    setHasPermission(statusPermission);
+    const statusPermission = await Camera.getCameraPermissionStatus();
+    setHasPermission(statusPermission === 'authorized');
     return () => {
       setHasPermission(false);
     };

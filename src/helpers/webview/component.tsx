@@ -1,13 +1,6 @@
 import React, {useEffect, useRef} from 'react';
 import WebView from 'react-native-webview';
-import {
-  Alert,
-  StyleSheet,
-  View,
-  Linking,
-  Platform,
-  PermissionsAndroid,
-} from 'react-native';
+import {Alert, StyleSheet, View, Linking, Platform} from 'react-native';
 import {
   setLoading,
   setRoute,
@@ -24,7 +17,7 @@ import {
 } from '@react-navigation/native';
 import {MessageParser} from '@src/helpers/webview/onMessage';
 import {setCartCount} from '@src/store/modules/cart/CartReducer';
-import {check, PERMISSIONS} from 'react-native-permissions';
+import {Camera} from 'react-native-vision-camera';
 import CustomLoader from '@src/components/general/CustomLoader';
 import {setUserToken} from '@src/store/modules/user/UserActions';
 import {setCookie} from '@src/helpers/webview/cookie';
@@ -119,50 +112,28 @@ export function WebComponent(props: WebComponentInterface) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const requestPermissionCamera = async () => {
-    if (Platform.OS === 'ios') {
-      await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.CAMERA, {
-        title: 'Доступ к камере',
-        message:
-          'Вы не сможете сканировать штрихкоды, если не разрешите доступ к камере. Разрешите использование камера для сканирования штрихкода товара в магазине',
-        buttonNegative: 'Отмена',
-        buttonPositive: 'Разрешить',
-      });
-    } else {
-      Alert.alert(
-        'Доступ к камере',
-        'Вы не сможете сканировать штрихкоды, если не разрешите доступ к камере. Разрешите использование камера для сканирования штрихкода товара в магазине',
-        [
-          {
-            text: 'Отмена',
-            onPress: () => console.log('Cancel Pressed'),
-            style: 'cancel',
-          },
-          {text: 'Разрешить', onPress: () => handleOpenSettings()},
-        ],
-      );
-    }
-  };
-
   const checkCameraPermission = async () => {
-    let status = await check(
-      Platform.OS === 'ios'
-        ? PERMISSIONS.IOS.CAMERA
-        : PERMISSIONS.ANDROID.CAMERA,
-    );
-    if (status !== 'granted') {
-      await requestPermissionCamera();
-      status = await check(
-        Platform.OS === 'ios'
-          ? PERMISSIONS.IOS.CAMERA
-          : PERMISSIONS.ANDROID.CAMERA,
-      );
-      if (status === 'granted') {
+    let status = await Camera.getCameraPermissionStatus();
+    if (status !== 'authorized') {
+      await Camera.requestCameraPermission();
+      status = await Camera.getCameraPermissionStatus();
+      if (status === 'authorized') {
         navigation.navigate('Camera');
       } else if (status === 'denied') {
-        await requestPermissionCamera();
+        Alert.alert(
+          'Доступ к камере',
+          'Вы не сможете сканировать штрихкоды, если не разрешите доступ к камере. Разрешите использование камера для сканирования штрихкода товара в магазине',
+          [
+            {
+              text: 'Отмена',
+              onPress: () => console.log('Cancel Pressed'),
+              style: 'cancel',
+            },
+            {text: 'Разрешить', onPress: () => handleOpenSettings()},
+          ],
+        );
       }
-    } else if (status === 'granted') {
+    } else if (status === 'authorized') {
       navigation.navigate('Camera');
     }
   };

@@ -1,4 +1,4 @@
-import {createSlice} from '@reduxjs/toolkit';
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
 export const webviewSlice = createSlice({
   name: 'webview',
@@ -15,31 +15,31 @@ export const webviewSlice = createSlice({
     webviewOpen: false,
   },
   reducers: {
-    setLoading(state, action) {
+    setLoading(state, action: PayloadAction<boolean>) {
       state.loading = action.payload;
     },
-    setAction(state, action) {
+    setAction(state, action: PayloadAction<string>) {
       state.action = action.payload;
     },
-    setTitle(state, action) {
+    setTitle(state, action: PayloadAction<string>) {
       state.title = action.payload;
     },
-    setRoute(state, action) {
+    setRoute(state, action: PayloadAction<string>) {
       state.route = action.payload;
     },
-    setRouteNow(state, action) {
+    setRouteNow(state, action: PayloadAction<string>) {
       state.route = action.payload;
     },
-    setTab(state, action) {
+    setTab(state, action: PayloadAction<string>) {
       state.tab = action.payload;
     },
-    setHideTabBar(state, action: {payload: boolean}) {
+    setHideTabBar(state, action: PayloadAction<boolean>) {
       state.hideTabBar = action.payload;
     },
-    setFirstOpen(state, action) {
+    setFirstOpen(state, action: PayloadAction<boolean>) {
       state.firstOpen = action.payload;
     },
-    setWebviewOpen(state, action) {
+    setWebviewOpen(state, action: PayloadAction<boolean>) {
       state.webviewOpen = action.payload;
     },
   },
