@@ -21,16 +21,16 @@ const tabBarIcon = (focused, iconText: string) => {
 };
 
 export default [
-  // {
-  //   name: 'Loading',
-  //   component: LoadingScreen,
-  //   options: {
-  //     headerShown: false,
-  //     tabBarItemStyle: { display: 'none' },
-  //     isWebView: false,
-  //   },
-  //   initialParams: {},
-  // },
+  {
+    name: 'Loading',
+    component: LoadingScreen,
+    options: {
+      headerShown: false,
+      tabBarItemStyle: { display: 'none' },
+      isWebView: false,
+    },
+    initialParams: {},
+  },
   {
     name: 'City',
     component: CityScreen,

@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   StyleSheet,
   StatusBar,
@@ -12,7 +12,13 @@ import {
   Vibration,
   PermissionsAndroid,
 } from 'react-native';
-import {Camera, CameraType} from 'react-native-camera-kit';
+import {runOnJS} from 'react-native-reanimated';
+import {
+  useCameraDevices,
+  Camera,
+  useFrameProcessor,
+} from 'react-native-vision-camera';
+import {Barcode, BarcodeFormat, scanBarcodes} from "vision-camera-code-scanner";
 import {widthToDp, heightToDp} from 'rn-responsive-screen';
 import {useNavigation} from '@react-navigation/native';
 import {useDispatch, useSelector} from 'react-redux';
@@ -32,8 +38,9 @@ const BarcodeScanner = ({goHome, goNotFound, openProduct, city}) => {
   const {config, webview} = useSelector((s: RootState) => s);
   const dispatch = useDispatch();
   const navigation = useNavigation();
+  const devices = useCameraDevices();
+  const device = devices.back;
   const defaultSearchStatus = 'Расположите штрих-код внутри выделенной области';
-  const cameraRef = useRef(null);
 
   const [openSelfService, setOpenSelfService] = useState<boolean>(false);
   const [barcodes, setBarcodes] = useState<any[]>([]);
@@ -96,6 +103,23 @@ const BarcodeScanner = ({goHome, goNotFound, openProduct, city}) => {
     return () => {
       setHasPermission(false);
     };
+  }, []);
+
+  /** функция-оболочка, чтобы записать из worklet в state */
+  const workletBarcodes = (detectedBarcode: Barcode[]) => {
+    setBarcodes(detectedBarcode);
+  };
+
+  const frameProcessor = useFrameProcessor((frame) => {
+    'worklet';
+    const detectedBarcodes = scanBarcodes(
+      frame,
+      [BarcodeFormat.CODE_128, BarcodeFormat.CODE_39, BarcodeFormat.EAN_13],
+      {
+        checkInverted: true,
+      },
+    );
+    runOnJS(workletBarcodes)(detectedBarcodes);
   }, []);
 
   const checkCameraPermission = async () => {
@@ -209,21 +233,18 @@ const BarcodeScanner = ({goHome, goNotFound, openProduct, city}) => {
   };
 
   return (
+    device != null &&
     hasPermission && (
       <SafeAreaView style={styles.containerMain}>
         <StatusBar barStyle="light-content" backgroundColor="#000000" />
         <Camera
           style={StyleSheet.absoluteFill}
-          audio={false}
+          device={device}
           isActive={isCameraActive}
+          frameProcessor={frameProcessor}
+          frameProcessorFps={5}
+          audio={false}
           torch={isTorch ? 'on' : 'off'}
-          ref={cameraRef}
-          cameraType={CameraType.Back}
-          flashMode="auto"
-          onReadCode={(event) =>
-            setBarcodes([{rawValue: event?.nativeEvent.codeStringValue}])
-          }
-          scanBarcode={true}
         />
         <RNHoleView
           holes={[

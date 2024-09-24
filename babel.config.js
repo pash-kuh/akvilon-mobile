@@ -1,10 +1,7 @@
 module.exports = {
   presets: ['module:metro-react-native-babel-preset'],
   plugins: [
-    // ["@babel/plugin-transform-private-methods", {
-    //   "loose": true
-    // }],
-    // ... some other plugins
+    ["@babel/plugin-transform-private-methods", { loose: true }],
     '@babel/plugin-transform-runtime',
     '@babel/plugin-proposal-optional-chaining',
     ['@babel/plugin-proposal-class-properties', {  loose: true }],

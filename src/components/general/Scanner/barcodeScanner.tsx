@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   StyleSheet,
   StatusBar,
@@ -12,7 +12,14 @@ import {
   Vibration,
   PermissionsAndroid,
 } from 'react-native';
-import {Camera, CameraType} from 'react-native-camera-kit';
+
+import {runOnJS} from 'react-native-reanimated';
+import {
+  useCameraDevices,
+  Camera,
+  useFrameProcessor,
+} from 'react-native-vision-camera';
+import {Barcode, BarcodeFormat, scanBarcodes} from "vision-camera-code-scanner";
 import {widthToDp, heightToDp} from 'rn-responsive-screen';
 import {useNavigation} from '@react-navigation/native';
 import {typography} from '@src/assets/style/typography.style';
@@ -30,6 +37,8 @@ import {SelfServiceDrawer} from '@src/components/drawers/selfServiceDrawer';
  */
 const BarcodeScanner = ({goHome, goNotFound, openProduct, city}) => {
   const navigation = useNavigation();
+  const devices = useCameraDevices();
+  const device = devices.back;
   const defaultSearchStatus = 'Расположите штрих-код внутри выделенной области';
   const {config} = useSelector((s: RootState) => s);
   const dispatch = useDispatch();
@@ -42,7 +51,6 @@ const BarcodeScanner = ({goHome, goNotFound, openProduct, city}) => {
   const [searchStatus, setSearchStatus] = useState(defaultSearchStatus);
   const [isTorch, setIsTorch] = useState(false);
   const [rotateAnimation, setRotateAnimation] = useState(new Animated.Value(0));
-  const cameraRef = useRef(null);
   const [isShowLoading, setIsShowLoading] = useState(false); // крутилка
   const [isCameraActive, setIsCameraActive] = useState(true);
   const [isNotFound, setIsNotFound] = useState(false);
@@ -126,6 +134,23 @@ const BarcodeScanner = ({goHome, goNotFound, openProduct, city}) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isNotFound]);
 
+  /** функция-оболочка, чтобы записать из worklet в state */
+  const workletBarcodes = (detectedBarcode: Barcode[]) => {
+    setBarcodes(detectedBarcode);
+  };
+
+  const frameProcessor = useFrameProcessor((frame) => {
+    'worklet';
+    const detectedBarcodes = scanBarcodes(
+      frame,
+      [BarcodeFormat.CODE_128, BarcodeFormat.CODE_39, BarcodeFormat.EAN_13],
+      {
+        checkInverted: true,
+      },
+    );
+    runOnJS(workletBarcodes)(detectedBarcodes);
+  }, []);
+
   async function checkBarcode(curBarcode) {
     try {
       const {
@@ -188,21 +213,18 @@ const BarcodeScanner = ({goHome, goNotFound, openProduct, city}) => {
   };
 
   return (
+    device != null &&
     hasPermission && (
       <SafeAreaView style={styles.containerMain}>
         <StatusBar barStyle="light-content" backgroundColor="#000000" />
         <Camera
           style={StyleSheet.absoluteFill}
-          audio={false}
+          device={device}
           isActive={isCameraActive}
+          frameProcessor={frameProcessor}
+          frameProcessorFps={5}
+          audio={false}
           torch={isTorch ? 'on' : 'off'}
-          ref={cameraRef}
-          cameraType={CameraType.Back}
-          flashMode="auto"
-          onReadCode={(event) =>
-            setBarcodes([{rawValue: event?.nativeEvent.codeStringValue}])
-          }
-          scanBarcode={true}
         />
         <RNHoleView
           holes={[
