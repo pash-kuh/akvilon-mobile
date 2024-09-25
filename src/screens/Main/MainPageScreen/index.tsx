@@ -20,7 +20,7 @@ import {
   StyleSheet,
   View,
   Dimensions,
-  FlatList,
+  ScrollView,
   Image,
   Pressable,
   Linking,
@@ -337,12 +337,7 @@ function MainPageScreen() {
           <CustomLoader loading={loading} />
         </View>
       ) : (
-        // <FlatList
-        //   style={style.container}
-        //   data={[{}]}
-        //   keyExtractor={() => null}
-        //   renderItem={item => (
-            <>
+            <ScrollView>
               <View style={{ flex: 0.8 }}>
                 {/* Компонент хэдера с поиском и городом */}
                 <View style={style.headerContainer}>
@@ -372,27 +367,27 @@ function MainPageScreen() {
                   <PopularCategory />
                 </View>
               {/*  /!* Распродажа *!/*/}
-              {/*  {liquidation.length !== 0 && (*/}
-              {/*    <View style={style.liquidationSliderContainer}>*/}
-              {/*      <Slider*/}
-              {/*        title="Распродажа"*/}
-              {/*        liquidation={true}*/}
-              {/*        array={liquidation}*/}
-              {/*      />*/}
-              {/*    </View>*/}
-              {/*  )}*/}
+                {liquidation.length !== 0 && (
+                  <View style={style.liquidationSliderContainer}>
+                    <Slider
+                      title="Распродажа"
+                      liquidation={true}
+                      array={liquidation}
+                    />
+                  </View>
+                )}
               {/*  /!* Компонент "Специально для вас" *!/*/}
-              {/*  {!!justForYou?.products?.length && (*/}
-              {/*    <View>*/}
-              {/*      <JusForYou liquidation={false} justForYou={justForYou} />*/}
-              {/*    </View>*/}
-              {/*  )}*/}
+                {!!justForYou?.products?.length && (
+                  <View>
+                    <JusForYou liquidation={false} justForYou={justForYou} />
+                  </View>
+                )}
               {/*  /!* Компонент для баннера, возможно будет как слайдер *!/*/}
-              {/*  <View style={style.bannersContainer}>*/}
-              {/*    {!!banners.length && !!banners[0] && (*/}
-              {/*      <SliderBanner banner={banners[0]} />*/}
-              {/*    )}*/}
-              {/*  </View>*/}
+                <View style={style.bannersContainer}>
+                  {!!banners.length && !!banners[0] && (
+                    <SliderBanner banner={banners[0]} />
+                  )}
+                </View>
               {/*  /!* Компонент "Новинки" *!/*/}
                 {newProducts.length !== 0 && (
                   <View style={style.liquidationSliderContainer}>
@@ -404,23 +399,21 @@ function MainPageScreen() {
                   </View>
                 )}
               {/*  /!* Компонент с брендами *!/*/}
-              {/*  <View style={style.brandsContainer}>*/}
-              {/*    <Brands*/}
-              {/*      brands={brandsArray}*/}
-              {/*      url={config.url}*/}
-              {/*      title="Бренды"*/}
-              {/*      onBannerPress={onBannerPress}*/}
-              {/*    />*/}
-              {/*  </View>*/}
+                <View style={style.brandsContainer}>
+                  <Brands
+                    brands={brandsArray}
+                    url={config.url}
+                    title="Бренды"
+                    onBannerPress={onBannerPress}
+                  />
+                </View>
               {/*  /!* Компонент с чипсами товаров и категорий *!/*/}
                 <View style={style.helpFindContainer}>
                   <HelpFind />
                 </View>
               </View>
-            </>
+            </ScrollView>
           )}
-      {/*  />*/}
-      {/*)}*/}
       {/* Компонент тех. поддержки */}
       {!loading && !webview.loading && (
         <Pressable
