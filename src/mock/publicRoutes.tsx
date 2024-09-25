@@ -69,19 +69,19 @@ export default [
     },
     initialParams: {},
   },
-  {
-    name: 'Camera',
-    component: CameraScreen,
-    options: {
-      headerShown: false,
-      headerTitle: '',
-      headerShadowVisible: false,
-      headerStyle: { backgroundColor: 'transparent' },
-      tabBarItemStyle: { display: 'none' },
-      isWebView: false,
-    },
-    initialParams: {},
-  },
+  // {
+  //   name: 'Camera',
+  //   component: CameraScreen,
+  //   options: {
+  //     headerShown: false,
+  //     headerTitle: '',
+  //     headerShadowVisible: false,
+  //     headerStyle: { backgroundColor: 'transparent' },
+  //     tabBarItemStyle: { display: 'none' },
+  //     isWebView: false,
+  //   },
+  //   initialParams: {},
+  // },
   {
     name: 'CameraNotFoundScreen',
     component: CameraNotFoundScreen,

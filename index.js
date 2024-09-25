@@ -1,6 +1,6 @@
 
 import 'react-native-reanimated';
-import { AppRegistry, StatusBar, View, Text } from 'react-native';
+import { AppRegistry, StatusBar } from 'react-native';
 import { Provider } from 'react-redux';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Provider as PaperProvider } from 'react-native-paper';

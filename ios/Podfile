@@ -27,6 +27,16 @@ if linkage != nil
   use_frameworks! :linkage => linkage.to_sym
 end
 
+pre_install do |installer|
+    installer.pod_targets.each do |pod|
+      if pod.name.eql?('vision-camera-code-scanner') || pod.name.eql?('VisionCamera')
+        def pod.build_type
+          Pod::BuildType.static_library
+        end
+      end
+    end
+  end
+
 target 'akvilonmobile' do
   config = use_native_modules!
 

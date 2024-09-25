@@ -14,6 +14,10 @@
 		2C6336259A6F9F4961ECD2C0 /* libPods-akvilonmobile-akvilonmobileTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3357B9F01DB22349192931DF /* libPods-akvilonmobile-akvilonmobileTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		CB991C7B9C2DB263DA2C4A50 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = B94FA78087BD0033A5FFEB5E /* PrivacyInfo.xcprivacy */; };
+		E9739ADF2CA3FC8500E290F2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E9739ADE2CA3FC8500E290F2 /* GoogleService-Info.plist */; };
+		E9739AE02CA3FC8500E290F2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E9739ADE2CA3FC8500E290F2 /* GoogleService-Info.plist */; };
+		E9739AE42CA3FD2900E290F2 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9739AE32CA3FD2900E290F2 /* File.swift */; };
+		E9739AE52CA3FD2900E290F2 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9739AE32CA3FD2900E290F2 /* File.swift */; };
 		FC8FE86707CB37AD3B6D5E90 /* libPods-akvilonmobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4106B0BC77660AEEC4D97CE2 /* libPods-akvilonmobile.a */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +30,19 @@
 			remoteInfo = akvilonmobile;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E9739AD92CA3F9C700E290F2 /* Copy Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n\"${PODS_ROOT}/FirebaseCrashlytics/upload-symbols\" -gsp \"${PROJECT_DIR}/MyApp/GoogleService-Info.plist\" -p ios \"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}\"";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			name = "Copy Files";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		00E356EE1AD99517003FC87E /* akvilonmobileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = akvilonmobileTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,6 +63,10 @@
 		7BBDB20AF4D0776C5216637B /* Pods-akvilonmobile-akvilonmobileTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-akvilonmobile-akvilonmobileTests.release.xcconfig"; path = "Target Support Files/Pods-akvilonmobile-akvilonmobileTests/Pods-akvilonmobile-akvilonmobileTests.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = akvilonmobile/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B94FA78087BD0033A5FFEB5E /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = akvilonmobile/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		E9739ADE2CA3FC8500E290F2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "akvilonmobile/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E9739AE12CA3FD2800E290F2 /* akvilonmobile-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "akvilonmobile-Bridging-Header.h"; sourceTree = "<group>"; };
+		E9739AE22CA3FD2800E290F2 /* akvilonmobileTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "akvilonmobileTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		E9739AE32CA3FD2900E290F2 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -121,12 +142,16 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				E9739AE32CA3FD2900E290F2 /* File.swift */,
+				E9739ADE2CA3FC8500E290F2 /* GoogleService-Info.plist */,
 				13B07FAE1A68108700A75B9A /* akvilonmobile */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* akvilonmobileTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				E9739AE12CA3FD2800E290F2 /* akvilonmobile-Bridging-Header.h */,
+				E9739AE22CA3FD2800E290F2 /* akvilonmobileTests-Bridging-Header.h */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -189,6 +214,7 @@
 				F2D822D9EC9356046CA13BE7 /* [CP] Embed Pods Frameworks */,
 				870E9CF1C87F483EF5A0589C /* [CP] Copy Pods Resources */,
 				F0CD9B3A65896B2163A9872E /* [CP-User] [RNFB] Core Configuration */,
+				E9739AD92CA3F9C700E290F2 /* Copy Files */,
 				32F7F079EDAD439CE505D7ED /* [CP-User] [RNFB] Crashlytics Configuration */,
 			);
 			buildRules = (
@@ -210,10 +236,11 @@
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
+						LastSwiftMigration = 1540;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1540;
 					};
 				};
 			};
@@ -241,6 +268,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9739AE02CA3FC8500E290F2 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				E9739ADF2CA3FC8500E290F2 /* GoogleService-Info.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				CB991C7B9C2DB263DA2C4A50 /* PrivacyInfo.xcprivacy in Resources */,
 			);
@@ -302,7 +331,7 @@
 			);
 			inputPaths = (
 				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
-				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
 			);
 			name = "[CP-User] [RNFB] Crashlytics Configuration";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -420,6 +449,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00E356F31AD99517003FC87E /* akvilonmobileTests.m in Sources */,
+				E9739AE52CA3FD2900E290F2 /* File.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +458,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
+				E9739AE42CA3FD2900E290F2 /* File.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -447,7 +478,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 59ECB1ACAF437ABA8277B43E /* Pods-akvilonmobile-akvilonmobileTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -466,6 +499,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "akvilonmobileTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/akvilonmobile.app/akvilonmobile";
 			};
 			name = Debug;
@@ -474,7 +510,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7BBDB20AF4D0776C5216637B /* Pods-akvilonmobile-akvilonmobileTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = akvilonmobileTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
@@ -490,6 +528,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "akvilonmobileTests-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/akvilonmobile.app/akvilonmobile";
 			};
 			name = Release;
@@ -499,10 +539,12 @@
 			baseConfigurationReference = 075C1DFB8F4A8BB22F0C263A /* Pods-akvilonmobile.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YQS8S7L3Z8;
 				ENABLE_BITCODE = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				INFOPLIST_FILE = akvilonmobile/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -514,8 +556,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.akvilonmobile;
 				PRODUCT_NAME = akvilonmobile;
+				SWIFT_OBJC_BRIDGING_HEADER = "akvilonmobile-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -527,9 +570,11 @@
 			baseConfigurationReference = 2B396E0836DCA65310821459 /* Pods-akvilonmobile.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YQS8S7L3Z8;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				INFOPLIST_FILE = akvilonmobile/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -541,8 +586,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.akvilonmobile;
 				PRODUCT_NAME = akvilonmobile;
+				SWIFT_OBJC_BRIDGING_HEADER = "akvilonmobile-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -583,6 +629,7 @@
 				CXX = "";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -667,6 +714,7 @@
 				CXX = "";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
