@@ -1902,6 +1902,28 @@ PODS:
   - VisionCamera/React (4.5.3):
     - React-Core
     - VisionCamera/FrameProcessors
+  - VisionCameraCodeScanner (0.11.2):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.01.01.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - VisionCamera
+    - Yoga
   - YandexMobileMetrica (4.5.2):
     - YandexMobileMetrica/Static (= 4.5.2)
   - YandexMobileMetrica/Static (4.5.2):
@@ -2019,6 +2041,7 @@ DEPENDENCIES:
   - RNSVG (from `../node_modules/react-native-svg`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - VisionCamera (from `../node_modules/react-native-vision-camera`)
+  - "VisionCameraCodeScanner (from `../node_modules/@mgcrea/vision-camera-barcode-scanner`)"
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -2238,6 +2261,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-vector-icons"
   VisionCamera:
     :path: "../node_modules/react-native-vision-camera"
+  VisionCameraCodeScanner:
+    :path: "../node_modules/@mgcrea/vision-camera-barcode-scanner"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -2360,6 +2385,7 @@ SPEC CHECKSUMS:
   RNVectorIcons: 6382277afab3c54658e9d555ee0faa7a37827136
   SocketRocket: abac6f5de4d4d62d24e11868d7a2f427e0ef940d
   VisionCamera: 3b7cfecebbcb3871c4dd3fb47791b96a47fe5371
+  VisionCameraCodeScanner: a104d55c13dccce4229c4d8a81b7af93c6300e4c
   YandexMobileMetrica: f5368ee93f286c793d73b58da00929babfc897c1
   Yoga: 4ef80d96a5534f0e01b3055f17d1e19a9fc61b63
 

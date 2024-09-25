@@ -17,8 +17,8 @@ import {
   useCameraDevices,
   Camera,
   useFrameProcessor,
-} from 'react-native-vision-camera';
-import {Barcode, BarcodeFormat, scanBarcodes} from "vision-camera-code-scanner";
+  useCodeScanner,
+} from "react-native-vision-camera";
 import {widthToDp, heightToDp} from 'rn-responsive-screen';
 import {useNavigation} from '@react-navigation/native';
 import {typography} from '@src/assets/style/typography.style';
@@ -37,13 +37,13 @@ import {SelfServiceDrawer} from '@src/components/drawers/selfServiceDrawer';
 const BarcodeScanner = ({goHome, goNotFound, openProduct, city}) => {
   const navigation = useNavigation();
   const devices = useCameraDevices();
-  const device = devices.back;
+  const device = devices.find(({ position }) => position === "back");
   const defaultSearchStatus = 'Расположите штрих-код внутри выделенной области';
   const {config} = useSelector((s: RootState) => s);
   const dispatch = useDispatch();
 
   const [openSelfService, setOpenSelfService] = useState<boolean>(false);
-  const [barcodes, setBarcodes] = useState<any[]>([]);
+  const [barcodes, setBarcodes] = useState<string[]>([]);
   const [barcode, setBarcode] = useState('');
   const [hasPermission, setHasPermission] = useState(false);
   const [isScanned, setIsScanned] = useState(false);
@@ -132,18 +132,16 @@ const BarcodeScanner = ({goHome, goNotFound, openProduct, city}) => {
   }, [isNotFound]);
 
   /** функция-оболочка, чтобы записать из worklet в state */
-  const workletBarcodes = (detectedBarcode: Barcode[]) => {
+  const workletBarcodes = (detectedBarcode: string[]) => {
     setBarcodes(detectedBarcode);
   };
 
   const frameProcessor = useFrameProcessor((frame) => {
     'worklet';
-    const detectedBarcodes = scanBarcodes(
-      frame,
-      [BarcodeFormat.CODE_128, BarcodeFormat.CODE_39, BarcodeFormat.EAN_13],
-      {
-        checkInverted: true,
-      },
+    const detectedBarcodes = useCodeScanner({
+        codeTypes: ['qr', 'ean-13', "code-39", "code-128", "code-93"],
+        onCodeScanned: codes => codes
+      }
     );
     runOnJS(workletBarcodes)(detectedBarcodes);
   }, []);
