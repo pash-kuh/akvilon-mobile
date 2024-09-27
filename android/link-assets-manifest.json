@@ -1,0 +1,25 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/akvolin.ttf",
+      "sha1": "b4ee3462c13b6e32d382d011c09692064f28ef2a"
+    },
+    {
+      "path": "src/assets/fonts/PTRootUI-Bold.otf",
+      "sha1": "550afca233da9de78e49f9a2881b6f34b2f8062d"
+    },
+    {
+      "path": "src/assets/fonts/PTRootUI-Light.otf",
+      "sha1": "1ccbbb411ea58fc0ee2bbba2419b6cc9e575f259"
+    },
+    {
+      "path": "src/assets/fonts/PTRootUI-Medium.otf",
+      "sha1": "a49c1d25cd1e17c30a0d238a1d033c6b3beff42f"
+    },
+    {
+      "path": "src/assets/fonts/PTRootUI-Regular.otf",
+      "sha1": "8cff788fac4d82ea57cf6c235b9d9b360b141b53"
+    }
+  ]
+}
