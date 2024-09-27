@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Аквилон</string>
+    <string name="facebook_app_id">942504689741615</string>
+    <string name="facebook_login_protocol_scheme">fb942504689741615</string>
+</resources>
