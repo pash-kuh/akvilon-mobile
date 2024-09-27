@@ -11,14 +11,19 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		1B66BA7519A242E29F5EE8F0 /* PTRootUI-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6DC1E52E694D4E138B557B01 /* PTRootUI-Medium.otf */; };
+		228F1879A8034055886458F9 /* PTRootUI-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E624B9ED9FD4A05A5C7A3D9 /* PTRootUI-Bold.otf */; };
 		5B935651991C3A0BAE990B56 /* libPods-akvilonmobile-akvilonmobileTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F4646A82F10309B5F1712C3 /* libPods-akvilonmobile-akvilonmobileTests.a */; };
+		7D506A35CDF44DE5B14CB11A /* PTRootUI-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90A30F899AA64B5D8E0E5707 /* PTRootUI-Regular.otf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		847980DD2D884E5885ABB937 /* PTRootUI-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7C08CB6110A44EF98CB274C2 /* PTRootUI-Light.otf */; };
 		C5F50201B0F06B44B2E84A1D /* libPods-akvilonmobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB15A8AEC660A31AE0C5B2E5 /* libPods-akvilonmobile.a */; };
 		CB991C7B9C2DB263DA2C4A50 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = B94FA78087BD0033A5FFEB5E /* PrivacyInfo.xcprivacy */; };
 		E9739ADF2CA3FC8500E290F2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E9739ADE2CA3FC8500E290F2 /* GoogleService-Info.plist */; };
 		E9739AE02CA3FC8500E290F2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E9739ADE2CA3FC8500E290F2 /* GoogleService-Info.plist */; };
 		E9739AE42CA3FD2900E290F2 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9739AE32CA3FD2900E290F2 /* File.swift */; };
 		E9739AE52CA3FD2900E290F2 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9739AE32CA3FD2900E290F2 /* File.swift */; };
+		EBD68A38AC4840F9B6B15951 /* akvolin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CE8DA1700CA477AA417CA67 /* akvolin.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,8 +48,13 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = akvilonmobile/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = akvilonmobile/main.m; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = akvilonmobile/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		2CE8DA1700CA477AA417CA67 /* akvolin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = akvolin.ttf; path = ../src/assets/fonts/akvolin.ttf; sourceTree = "<group>"; };
+		4E624B9ED9FD4A05A5C7A3D9 /* PTRootUI-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "PTRootUI-Bold.otf"; path = "../src/assets/fonts/PTRootUI-Bold.otf"; sourceTree = "<group>"; };
 		4F4646A82F10309B5F1712C3 /* libPods-akvilonmobile-akvilonmobileTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-akvilonmobile-akvilonmobileTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DC1E52E694D4E138B557B01 /* PTRootUI-Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "PTRootUI-Medium.otf"; path = "../src/assets/fonts/PTRootUI-Medium.otf"; sourceTree = "<group>"; };
+		7C08CB6110A44EF98CB274C2 /* PTRootUI-Light.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "PTRootUI-Light.otf"; path = "../src/assets/fonts/PTRootUI-Light.otf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = akvilonmobile/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		90A30F899AA64B5D8E0E5707 /* PTRootUI-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "PTRootUI-Regular.otf"; path = "../src/assets/fonts/PTRootUI-Regular.otf"; sourceTree = "<group>"; };
 		AB15A8AEC660A31AE0C5B2E5 /* libPods-akvilonmobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-akvilonmobile.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B729F6C8E561E2D81A524298 /* Pods-akvilonmobile-akvilonmobileTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-akvilonmobile-akvilonmobileTests.release.xcconfig"; path = "Target Support Files/Pods-akvilonmobile-akvilonmobileTests/Pods-akvilonmobile-akvilonmobileTests.release.xcconfig"; sourceTree = "<group>"; };
 		B94FA78087BD0033A5FFEB5E /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = akvilonmobile/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
@@ -109,6 +119,19 @@
 			name = akvilonmobile;
 			sourceTree = "<group>";
 		};
+		1CEDDA40372D4FF28C948A95 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4E624B9ED9FD4A05A5C7A3D9 /* PTRootUI-Bold.otf */,
+				7C08CB6110A44EF98CB274C2 /* PTRootUI-Light.otf */,
+				6DC1E52E694D4E138B557B01 /* PTRootUI-Medium.otf */,
+				90A30F899AA64B5D8E0E5707 /* PTRootUI-Regular.otf */,
+				2CE8DA1700CA477AA417CA67 /* akvolin.ttf */,
+			);
+			name = Resources;
+			path = "";
+			sourceTree = "<group>";
+		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +162,7 @@
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
 				E9739AE12CA3FD2800E290F2 /* akvilonmobile-Bridging-Header.h */,
 				E9739AE22CA3FD2800E290F2 /* akvilonmobileTests-Bridging-Header.h */,
+				1CEDDA40372D4FF28C948A95 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -266,6 +290,11 @@
 				E9739ADF2CA3FC8500E290F2 /* GoogleService-Info.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				CB991C7B9C2DB263DA2C4A50 /* PrivacyInfo.xcprivacy in Resources */,
+				228F1879A8034055886458F9 /* PTRootUI-Bold.otf in Resources */,
+				847980DD2D884E5885ABB937 /* PTRootUI-Light.otf in Resources */,
+				1B66BA7519A242E29F5EE8F0 /* PTRootUI-Medium.otf in Resources */,
+				7D506A35CDF44DE5B14CB11A /* PTRootUI-Regular.otf in Resources */,
+				EBD68A38AC4840F9B6B15951 /* akvolin.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,7 +9,7 @@
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIconName</key>
-	<string></string>
+	<string/>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -55,14 +55,9 @@
 	<key>NSCameraUsageDescription</key>
 	<string>Разрешите использование камера для сканирования штрихкода товара в магазине</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>PTRootUI-Bold.otf</string>
-		<string>PTRootUI-Light.otf</string>
-		<string>PTRootUI-Medium.otf</string>
-		<string>PTRootUI-Regular.otf</string>
-		<string>akvolin.ttf</string>
 		<string>AntDesign.ttf</string>
 		<string>Entypo.ttf</string>
 		<string>EvilIcons.ttf</string>
@@ -79,6 +74,11 @@
 		<string>Octicons.ttf</string>
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
+		<string>PTRootUI-Bold.otf</string>
+		<string>PTRootUI-Light.otf</string>
+		<string>PTRootUI-Medium.otf</string>
+		<string>PTRootUI-Regular.otf</string>
+		<string>akvolin.ttf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>
