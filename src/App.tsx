@@ -22,7 +22,7 @@ import {
 import dynamicLinks from '@react-native-firebase/dynamic-links';
 import DeviceInfo from 'react-native-device-info';
 import { getVersionNumber } from '@src/store/modules/user/UserActions';
-import AppMetrica from '@gennadysx/react-native-appmetrica';
+import AppMetrica from '@appmetrica/react-native-analytics';
 import { LogBox } from 'react-native';
 LogBox.ignoreLogs(['new NativeEventEmitter']);
 

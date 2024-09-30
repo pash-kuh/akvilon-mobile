@@ -1,24 +1,22 @@
 buildscript {
     ext {
         buildToolsVersion = "34.0.0"
-        minSdkVersion = 23
+        minSdkVersion = 26
         compileSdkVersion = 34
         targetSdkVersion = 34
         ndkVersion = "26.1.10909125"
-        kotlinVersion = "1.9.24"
+        kotlin_version = "1.9.24"
     }
     repositories {
         google()
         mavenCentral()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle")
-        classpath("com.facebook.react:react-native-gradle-plugin")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin")
-        classpath("com.google.gms:google-services:4.3.10")
-        classpath("com.google.firebase:perf-plugin:1.4.1")
-        classpath("com.google.firebase:firebase-crashlytics-gradle:2.7.1")
-
+        classpath("com.android.tools.build:gradle:7.3.1")
+        classpath("com.google.gms:google-services:4.4.2")
+        classpath("com.google.firebase:perf-plugin:1.4.2")
+        classpath("com.google.firebase:firebase-crashlytics-gradle:3.0.2")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
     }
 }
 
@@ -38,10 +36,9 @@ allprojects {
         }
 
         google()
-        jcenter()
         maven { url 'https://www.jitpack.io' }
     }
-    configurations.all {
+    configurations.configureEach {
         resolutionStrategy {
             force "com.facebook.react:react-native:" + REACT_NATIVE_VERSION
         }
@@ -49,6 +46,3 @@ allprojects {
         exclude group: 'com.google.firebase', module: 'firebase-iid'
     }
 }
-
-
-apply plugin: "com.facebook.react.rootproject"

@@ -1,7 +1,7 @@
 apply plugin: "com.android.application"
 apply plugin: "com.google.gms.google-services"
 apply plugin: "com.google.firebase.firebase-perf"
-apply plugin: "com.google.firebase.crashlytics"
+//apply plugin: "com.google.firebase.crashlytics"
 
 import com.android.build.OutputFile
 
@@ -179,7 +179,7 @@ android {
     }
 
     // applicationVariants are e.g. debug, release
-    applicationVariants.all { variant ->
+    applicationVariants.configureEach { variant ->
         variant.outputs.each { output ->
             // For each separate APK per architecture, set a unique version code as described here:
             // https://developer.android.com/studio/build/configure-apk-splits.html
@@ -195,9 +195,10 @@ android {
 }
 
 dependencies {
-    implementation 'com.yandex.android:mobmetricalib:5.2.0'
+    implementation 'com.yandex.android:mobmetricalib:5.3.0'
+    //noinspection GradleDynamicVersion,GradleDependency
     implementation 'com.facebook.soloader:soloader:0.10.4+'
-    implementation "androidx.work:work-runtime:2.7.0"
+    implementation "androidx.work:work-runtime:2.9.1"
     implementation fileTree(dir: "libs", include: ["*.jar"])
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
@@ -208,11 +209,11 @@ dependencies {
 
     implementation "com.android.support:multidex:2.0.1"
 
-    implementation platform('com.google.firebase:firebase-bom:30.3.0')
-    implementation 'com.google.firebase:firebase-messaging:23.0.0'
+    implementation platform('com.google.firebase:firebase-bom:33.3.0')
+    implementation 'com.google.firebase:firebase-messaging:24.0.1'
 
     implementation 'com.google.firebase:firebase-analytics'
-    implementation ("com.yandex.android:mobmetricalib:5.2.0") {
+    implementation ("com.yandex.android:mobmetricalib:5.3.0") {
         exclude group: 'com.yandex.android', module: 'mobmetricalib-identifiers'
     }
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
@@ -239,7 +240,7 @@ dependencies {
 
 // Run this once to be able to run the application with BUCK
 // puts all compile dependencies into folder libs for BUCK to use
-task copyDownloadableDepsToLibs(type: Copy) {
+tasks.register('copyDownloadableDepsToLibs', Copy) {
     from configurations.implementation
     into 'libs'
 }
