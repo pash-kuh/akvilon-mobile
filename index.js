@@ -1,5 +1,6 @@
-
+import 'react-native-worklets-core/src'; // for frame processor with react-native-vision-camera@^3.0.0
 import 'react-native-reanimated';
+
 import { AppRegistry, StatusBar } from 'react-native';
 import { Provider } from 'react-redux';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
@@ -12,7 +13,7 @@ import { store } from './src/store/';
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import theme from './src/helpers/theme';
-import AppMetrica from '@gennadysx/react-native-appmetrica';
+import AppMetrica from '@appmetrica/react-native-analytics';
 
 const notification = new FirebaseNotification();
 notification.requestUserPermission();
