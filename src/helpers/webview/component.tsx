@@ -114,10 +114,10 @@ export function WebComponent(props: WebComponentInterface) {
 
   const checkCameraPermission = async () => {
     let status = await Camera.getCameraPermissionStatus();
-    if (status !== 'authorized') {
+    if (status !== 'granted') {
       await Camera.requestCameraPermission();
       status = await Camera.getCameraPermissionStatus();
-      if (status === 'authorized') {
+      if (status === 'granted') {
         navigation.navigate('Camera');
       } else if (status === 'denied') {
         Alert.alert(
@@ -133,7 +133,7 @@ export function WebComponent(props: WebComponentInterface) {
           ],
         );
       }
-    } else if (status === 'authorized') {
+    } else if (status === 'granted') {
       navigation.navigate('Camera');
     }
   };

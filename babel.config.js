@@ -5,7 +5,7 @@ module.exports = {
     '@babel/plugin-transform-runtime',
     '@babel/plugin-proposal-optional-chaining',
     ['@babel/plugin-proposal-class-properties', { loose: true }],
-    ['react-native-worklets-core/inline-requires'],
+    ['react-native-worklets-core/plugin'],
     ['react-native-reanimated/plugin', { globals: ['__scanCodes'] }],
     [
       'module-resolver',

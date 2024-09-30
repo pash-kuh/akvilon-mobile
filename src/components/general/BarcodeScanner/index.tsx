@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   StyleSheet,
   StatusBar,
@@ -11,29 +11,30 @@ import {
   Easing,
   Vibration,
 } from 'react-native';
-import {runOnJS} from 'react-native-reanimated';
 import {
   useCameraDevices,
   Camera,
   useFrameProcessor,
   useCodeScanner,
 } from 'react-native-vision-camera';
-import {widthToDp, heightToDp} from 'rn-responsive-screen';
-import {useNavigation} from '@react-navigation/native';
-import {useDispatch, useSelector} from 'react-redux';
-import {api} from '@src/helpers/request';
-import {setAction} from '@src/store/modules/webview/WebviewReducer';
-import {RootState} from '@src/store';
-import {setSelfServices} from '@src/store/modules/selfServiceData/SelfServiceReducer';
-import {RNHoleView} from 'react-native-hole-view';
-import {SelfServiceDrawer} from '@src/components/drawers/selfServiceDrawer';
+import { widthToDp, heightToDp } from 'rn-responsive-screen';
+import { useNavigation } from '@react-navigation/native';
+import { useDispatch, useSelector } from 'react-redux';
+import { api } from '@src/helpers/request';
+import { setAction } from '@src/store/modules/webview/WebviewReducer';
+import { RootState } from '@src/store';
+import { setSelfServices } from '@src/store/modules/selfServiceData/SelfServiceReducer';
+import { RNHoleView } from 'react-native-hole-view';
+import { SelfServiceDrawer } from '@src/components/drawers/selfServiceDrawer';
+import { useBarcodeScanner, } from 'react-native-vision-camera-barcodes-scanner';
+import { runOnJS } from 'react-native-reanimated';
 
 /**
  * Сканер штрихкодов
  */
 
-const BarcodeScanner = ({goHome, goNotFound, openProduct, city}) => {
-  const {config, webview} = useSelector((s: RootState) => s);
+const BarcodeScanner = ({ goHome, goNotFound, openProduct, city }) => {
+  const { config, webview } = useSelector((s: RootState) => s);
   const dispatch = useDispatch();
   const navigation = useNavigation();
   const devices = useCameraDevices();
@@ -108,19 +109,27 @@ const BarcodeScanner = ({goHome, goNotFound, openProduct, city}) => {
     setBarcodes(detectedBarcode);
   };
 
+  // const options = ['qr', 'ean-13', "code-39", "code-128", "code-93"]
+
+  // const { scanBarcodes } = useBarcodeScanner(options)
+  // const frameProcessor = useFrameProcessor((frame) => {
+  //   'worklet'
+  //   const data = scanBarcodes(frame)
+  //   console.log(data, 'data')
+  // }, [])
   const frameProcessor = useFrameProcessor((frame) => {
     'worklet';
     const detectedBarcodes = useCodeScanner({
-        codeTypes: ['qr', 'ean-13', "code-39", "code-128", "code-93"],
-        onCodeScanned: codes => codes
-      }
+      codeTypes: ['qr', 'ean-13', "code-39", "code-128", "code-93"],
+      onCodeScanned: codes => codes
+    }
     );
     runOnJS(workletBarcodes)(detectedBarcodes);
   }, []);
 
   const checkCameraPermission = async () => {
     const statusPermission = await Camera.getCameraPermissionStatus();
-    setHasPermission(statusPermission === 'authorized');
+    setHasPermission(statusPermission === 'granted');
     return () => {
       setHasPermission(false);
     };
@@ -148,7 +157,7 @@ const BarcodeScanner = ({goHome, goNotFound, openProduct, city}) => {
   async function checkBarcode(curBarcode) {
     try {
       const {
-        data: {data},
+        data: { data },
       } = await api(config.apiUrl)(
         `search/?cityId=${city}&q=${curBarcode}&mode=barcode&page=1&size=1&mode=barcode`,
       );
@@ -235,8 +244,8 @@ const BarcodeScanner = ({goHome, goNotFound, openProduct, city}) => {
           style={StyleSheet.absoluteFill}
           device={device}
           isActive={isCameraActive}
-          frameProcessor={frameProcessor}
-          frameProcessorFps={5}
+          // frameProcessor={frameProcessor}
+          // frameProcessorFps={5}
           audio={false}
           torch={isTorch ? 'on' : 'off'}
         />

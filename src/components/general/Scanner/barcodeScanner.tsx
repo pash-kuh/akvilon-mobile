@@ -106,7 +106,7 @@ const BarcodeScanner = ({goHome, goNotFound, openProduct, city}) => {
 
   const checkCameraPermission = async () => {
     const statusPermission = await Camera.getCameraPermissionStatus();
-    setHasPermission(statusPermission === 'authorized');
+    setHasPermission(statusPermission === 'granted');
     return () => {
       setHasPermission(false);
     };
