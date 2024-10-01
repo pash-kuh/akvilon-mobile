@@ -14,8 +14,8 @@ import {
 import {
   useCameraDevices,
   Camera,
-  useFrameProcessor,
   useCodeScanner,
+  CodeType
 } from 'react-native-vision-camera';
 import { widthToDp, heightToDp } from 'rn-responsive-screen';
 import { useNavigation } from '@react-navigation/native';
@@ -26,8 +26,7 @@ import { RootState } from '@src/store';
 import { setSelfServices } from '@src/store/modules/selfServiceData/SelfServiceReducer';
 import { RNHoleView } from 'react-native-hole-view';
 import { SelfServiceDrawer } from '@src/components/drawers/selfServiceDrawer';
-import { useBarcodeScanner, } from 'react-native-vision-camera-barcodes-scanner';
-import { runOnJS } from 'react-native-reanimated';
+import { BARCODE_TYPES } from '@src/helpers/constants';
 
 /**
  * Сканер штрихкодов
@@ -42,16 +41,15 @@ const BarcodeScanner = ({ goHome, goNotFound, openProduct, city }) => {
   const defaultSearchStatus = 'Расположите штрих-код внутри выделенной области';
 
   const [openSelfService, setOpenSelfService] = useState<boolean>(false);
-  const [barcodes, setBarcodes] = useState<string[]>([]);
-  const [barcode, setBarcode] = useState('');
-  const [hasPermission, setHasPermission] = useState(false);
-  const [isScanned, setIsScanned] = useState(false);
-  const [searchStatus, setSearchStatus] = useState(defaultSearchStatus);
-  const [isTorch, setIsTorch] = useState(false);
+  const [barcode, setBarcode] = useState<string>('');
+  const [hasPermission, setHasPermission] = useState<boolean>(false);
+  const [isScanned, setIsScanned] = useState<boolean>(false);
+  const [searchStatus, setSearchStatus] = useState<string>(defaultSearchStatus);
+  const [isTorch, setIsTorch] = useState<boolean>(false);
   const [rotateAnimation, setRotateAnimation] = useState(new Animated.Value(0));
-  const [isShowLoading, setIsShowLoading] = useState(false); // крутилка
-  const [isCameraActive, setIsCameraActive] = useState(true);
-  const [isNotFound, setIsNotFound] = useState(false);
+  const [isShowLoading, setIsShowLoading] = useState<boolean>(false); // крутилка
+  const [isCameraActive, setIsCameraActive] = useState<boolean>(true);
+  const [isNotFound, setIsNotFound] = useState<boolean>(false);
 
   const resetScanning = () => {
     setSearchStatus(defaultSearchStatus);
@@ -78,10 +76,6 @@ const BarcodeScanner = ({ goHome, goNotFound, openProduct, city }) => {
     if (isShowLoading) {
       handleAnimation();
     }
-    return () => {
-      isShowLoading;
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isShowLoading]);
 
   const interpolateRotating = rotateAnimation.interpolate({
@@ -104,28 +98,15 @@ const BarcodeScanner = ({ goHome, goNotFound, openProduct, city }) => {
     };
   }, []);
 
-  /** функция-оболочка, чтобы записать из worklet в state */
-  const workletBarcodes = (detectedBarcode: string[]) => {
-    setBarcodes(detectedBarcode);
-  };
-
-  // const options = ['qr', 'ean-13', "code-39", "code-128", "code-93"]
-
-  // const { scanBarcodes } = useBarcodeScanner(options)
-  // const frameProcessor = useFrameProcessor((frame) => {
-  //   'worklet'
-  //   const data = scanBarcodes(frame)
-  //   console.log(data, 'data')
-  // }, [])
-  const frameProcessor = useFrameProcessor((frame) => {
-    'worklet';
-    const detectedBarcodes = useCodeScanner({
-      codeTypes: ['qr', 'ean-13', "code-39", "code-128", "code-93"],
-      onCodeScanned: codes => codes
+  const codeScanner = useCodeScanner({
+    codeTypes: BARCODE_TYPES as CodeType[],
+    onCodeScanned: codes => {
+      if (codes.length) {
+        setBarcode(codes[0].value);
+      }
     }
-    );
-    runOnJS(workletBarcodes)(detectedBarcodes);
-  }, []);
+  }
+  );
 
   const checkCameraPermission = async () => {
     const statusPermission = await Camera.getCameraPermissionStatus();
@@ -135,23 +116,13 @@ const BarcodeScanner = ({ goHome, goNotFound, openProduct, city }) => {
     };
   };
 
-  useEffect(() => {
-    toggleActiveState();
-    return () => {
-      [barcodes];
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [barcodes]);
+  useEffect(() => { toggleActiveState() }, [barcode]);
 
   useEffect(() => {
     if (isNotFound) {
       resetScanning();
       goNotFound();
     }
-    return () => {
-      isNotFound;
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isNotFound]);
 
   async function checkBarcode(curBarcode) {
@@ -168,7 +139,6 @@ const BarcodeScanner = ({ goHome, goNotFound, openProduct, city }) => {
         // если для iOS вдруг работать не будет (что вряд ли), то можно задать так: Vibration.vibrate([400], false);
         Vibration.vibrate();
         if (product.isSelfService) {
-          console.log(product)
           // логика сохранения продукта для модалки по которому мы сможем перейти к товару.
           dispatch(setSelfServices(product));
           setOpenSelfService(true);
@@ -186,15 +156,12 @@ const BarcodeScanner = ({ goHome, goNotFound, openProduct, city }) => {
   }
 
   const toggleActiveState = async () => {
-    if (barcodes && barcodes.length > 0 && isScanned === false) {
+    if (barcode && isScanned === false) {
       setIsShowLoading(true);
       setSearchStatus('Распознаем код...');
-      if ('rawValue' in barcodes[0]) {
-        setBarcode(barcodes[0].rawValue);
-      }
+
       if (barcode && !openSelfService) {
         setIsScanned(true);
-        setBarcodes([]);
         setIsCameraActive(false);
         await checkBarcode(barcode);
       }
@@ -205,22 +172,18 @@ const BarcodeScanner = ({ goHome, goNotFound, openProduct, city }) => {
     setOpenSelfService(false);
     setIsShowLoading(false);
   };
-  const torchOff = () => {
-    setIsTorch(false);
-  };
+  const torchOff = () => { setIsTorch(false) };
+
   /** Возвращает назад, если предыдущий экран был из стека Main (Главная / Поиск),
    * если это был экран Camera Not Found, то на Главную */
   const handleClose = async () => {
     torchOff();
     if (webview.action === '1') {
       dispatch(setAction('2'));
-      console.log('setted 2');
     } else if (webview.action === '2') {
       dispatch(setAction('1'));
-      console.log('seeted 1');
     } else if (webview.action === '3') {
       dispatch(setAction('1'));
-      console.log('seeted 1');
     }
     const routes = navigation.getState()?.routes;
     const prevRoute = routes[routes.length - 2];
@@ -244,8 +207,7 @@ const BarcodeScanner = ({ goHome, goNotFound, openProduct, city }) => {
           style={StyleSheet.absoluteFill}
           device={device}
           isActive={isCameraActive}
-          // frameProcessor={frameProcessor}
-          // frameProcessorFps={5}
+          codeScanner={codeScanner}
           audio={false}
           torch={isTorch ? 'on' : 'off'}
         />

@@ -59,6 +59,7 @@ export class FirebaseNotification {
     try {
       await messaging().getAPNSToken();
       const token = await messaging().getToken();
+      
       if (token) {
         this.token = token;
         this.createChannel();

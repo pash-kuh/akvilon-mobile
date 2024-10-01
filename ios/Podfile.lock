@@ -1,4 +1,87 @@
 PODS:
+  - appmetrica-react-native-analytics (3.2.0):
+    - AppMetricaAnalytics (= 5.8.0)
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.01.01.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
+  - AppMetricaAdSupport (5.8.0):
+    - AppMetricaCore (= 5.8.0)
+    - AppMetricaCoreExtension (= 5.8.0)
+  - AppMetricaAnalytics (5.8.0):
+    - AppMetricaAdSupport (= 5.8.0)
+    - AppMetricaCore (= 5.8.0)
+    - AppMetricaCrashes (= 5.8.0)
+    - AppMetricaWebKit (= 5.8.0)
+  - AppMetricaCore (5.8.0):
+    - AppMetricaCoreUtils (= 5.8.0)
+    - AppMetricaEncodingUtils (= 5.8.0)
+    - AppMetricaFMDB (= 5.8.0)
+    - AppMetricaHostState (= 5.8.0)
+    - AppMetricaLog (= 5.8.0)
+    - AppMetricaNetwork (= 5.8.0)
+    - AppMetricaPlatform (= 5.8.0)
+    - AppMetricaProtobuf (= 5.8.0)
+    - AppMetricaProtobufUtils (= 5.8.0)
+    - AppMetricaStorageUtils (= 5.8.0)
+  - AppMetricaCoreExtension (5.8.0):
+    - AppMetricaCore (= 5.8.0)
+    - AppMetricaStorageUtils (= 5.8.0)
+  - AppMetricaCoreUtils (5.8.0):
+    - AppMetricaLog (= 5.8.0)
+  - AppMetricaCrashes (5.8.0):
+    - AppMetricaCore (= 5.8.0)
+    - AppMetricaCoreExtension (= 5.8.0)
+    - AppMetricaCoreUtils (= 5.8.0)
+    - AppMetricaEncodingUtils (= 5.8.0)
+    - AppMetricaHostState (= 5.8.0)
+    - AppMetricaLog (= 5.8.0)
+    - AppMetricaPlatform (= 5.8.0)
+    - AppMetricaProtobufUtils (= 5.8.0)
+    - AppMetricaStorageUtils (= 5.8.0)
+    - KSCrash/Recording (< 2.1.0, >= 2.0.0-rc.1)
+  - AppMetricaEncodingUtils (5.8.0):
+    - AppMetricaCoreUtils (= 5.8.0)
+    - AppMetricaLog (= 5.8.0)
+    - AppMetricaPlatform (= 5.8.0)
+  - AppMetricaFMDB (5.8.0)
+  - AppMetricaHostState (5.8.0):
+    - AppMetricaCoreUtils (= 5.8.0)
+    - AppMetricaLog (= 5.8.0)
+  - AppMetricaLog (5.8.0)
+  - AppMetricaNetwork (5.8.0):
+    - AppMetricaCoreUtils (= 5.8.0)
+    - AppMetricaLog (= 5.8.0)
+    - AppMetricaPlatform (= 5.8.0)
+  - AppMetricaPlatform (5.8.0):
+    - AppMetricaCoreUtils (= 5.8.0)
+    - AppMetricaLog (= 5.8.0)
+  - AppMetricaProtobuf (5.8.0)
+  - AppMetricaProtobufUtils (5.8.0):
+    - AppMetricaProtobuf (= 5.8.0)
+  - AppMetricaStorageUtils (5.8.0):
+    - AppMetricaCoreUtils (= 5.8.0)
+    - AppMetricaLog (= 5.8.0)
+  - AppMetricaWebKit (5.8.0):
+    - AppMetricaCore (= 5.8.0)
+    - AppMetricaCoreUtils (= 5.8.0)
+    - AppMetricaLog (= 5.8.0)
   - BEMCheckBox (1.4.1)
   - Bolts/Tasks (1.9.0)
   - boost (1.84.0)
@@ -139,16 +222,6 @@ PODS:
     - GoogleUtilities/Environment (~> 7.7)
     - nanopb (< 2.30911.0, >= 2.30908.0)
     - PromisesObjC (< 3.0, >= 1.2)
-  - GoogleMLKit/BarcodeScanning (6.0.0):
-    - GoogleMLKit/MLKitCore
-    - MLKitBarcodeScanning (~> 5.0.0)
-  - GoogleMLKit/MLKitCore (6.0.0):
-    - MLKitCommon (~> 11.0.0)
-  - GoogleToolboxForMac/Defines (4.2.1)
-  - GoogleToolboxForMac/Logger (4.2.1):
-    - GoogleToolboxForMac/Defines (= 4.2.1)
-  - "GoogleToolboxForMac/NSData+zlib (4.2.1)":
-    - GoogleToolboxForMac/Defines (= 4.2.1)
   - GoogleUtilities (7.13.3):
     - GoogleUtilities/AppDelegateSwizzler (= 7.13.3)
     - GoogleUtilities/Environment (= 7.13.3)
@@ -193,30 +266,15 @@ PODS:
   - GoogleUtilities/UserDefaults (7.13.3):
     - GoogleUtilities/Logger
     - GoogleUtilities/Privacy
-  - GoogleUtilitiesComponents (1.1.0):
-    - GoogleUtilities/Logger
-  - GTMSessionFetcher/Core (3.5.0)
   - hermes-engine (0.75.3):
     - hermes-engine/Pre-built (= 0.75.3)
   - hermes-engine/Pre-built (0.75.3)
   - InputMask (6.1.0)
-  - MLImage (1.0.0-beta5)
-  - MLKitBarcodeScanning (5.0.0):
-    - MLKitCommon (~> 11.0)
-    - MLKitVision (~> 7.0)
-  - MLKitCommon (11.0.0):
-    - GoogleDataTransport (< 10.0, >= 9.4.1)
-    - GoogleToolboxForMac/Logger (< 5.0, >= 4.2.1)
-    - "GoogleToolboxForMac/NSData+zlib (< 5.0, >= 4.2.1)"
-    - GoogleUtilities/UserDefaults (< 8.0, >= 7.13.0)
-    - GoogleUtilitiesComponents (~> 1.0)
-    - GTMSessionFetcher/Core (< 4.0, >= 3.3.2)
-  - MLKitVision (7.0.0):
-    - GoogleToolboxForMac/Logger (< 5.0, >= 4.2.1)
-    - "GoogleToolboxForMac/NSData+zlib (< 5.0, >= 4.2.1)"
-    - GTMSessionFetcher/Core (< 4.0, >= 3.3.2)
-    - MLImage (= 1.0.0-beta5)
-    - MLKitCommon (~> 11.0)
+  - KSCrash/Core (2.0.0-rc.3)
+  - KSCrash/Recording (2.0.0-rc.3):
+    - KSCrash/RecordingCore
+  - KSCrash/RecordingCore (2.0.0-rc.3):
+    - KSCrash/Core
   - nanopb (2.30910.0):
     - nanopb/decode (= 2.30910.0)
     - nanopb/encode (= 2.30910.0)
@@ -1457,9 +1515,6 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - react-native-appmetrica (2.7.0):
-    - React
-    - YandexMobileMetrica (= 4.5.2)
   - react-native-cookies (6.2.1):
     - React-Core
   - react-native-device-brightness (1.2.7):
@@ -1932,10 +1987,6 @@ PODS:
   - VisionCamera/React (4.5.3):
     - React-Core
     - VisionCamera/FrameProcessors
-  - VisionCameraBarcodesScanner (2.0.1):
-    - GoogleMLKit/BarcodeScanning
-    - React-Core
-    - VisionCamera
   - VisionCameraCodeScanner (0.11.2):
     - DoubleConversion
     - glog
@@ -1958,17 +2009,10 @@ PODS:
     - ReactCommon/turbomodule/core
     - VisionCamera
     - Yoga
-  - YandexMobileMetrica (4.5.2):
-    - YandexMobileMetrica/Static (= 4.5.2)
-  - YandexMobileMetrica/Static (4.5.2):
-    - YandexMobileMetrica/Static/Core (= 4.5.2)
-    - YandexMobileMetrica/Static/Crashes (= 4.5.2)
-  - YandexMobileMetrica/Static/Core (4.5.2)
-  - YandexMobileMetrica/Static/Crashes (4.5.2):
-    - YandexMobileMetrica/Static/Core
   - Yoga (0.0.0)
 
 DEPENDENCIES:
+  - "appmetrica-react-native-analytics (from `../node_modules/@appmetrica/react-native-analytics`)"
   - boost (from `../node_modules/react-native/third-party-podspecs/boost.podspec`)
   - BVLinearGradient (from `../node_modules/react-native-linear-gradient`)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
@@ -2019,7 +2063,6 @@ DEPENDENCIES:
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
   - React-Mapbuffer (from `../node_modules/react-native/ReactCommon`)
   - React-microtasksnativemodule (from `../node_modules/react-native/ReactCommon/react/nativemodule/microtasks`)
-  - "react-native-appmetrica (from `../node_modules/@gennadysx/react-native-appmetrica`)"
   - "react-native-cookies (from `../node_modules/@react-native-cookies/cookies`)"
   - "react-native-device-brightness (from `../node_modules/@adrianso/react-native-device-brightness`)"
   - react-native-hole-view (from `../node_modules/react-native-hole-view`)
@@ -2075,12 +2118,27 @@ DEPENDENCIES:
   - RNSVG (from `../node_modules/react-native-svg`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - VisionCamera (from `../node_modules/react-native-vision-camera`)
-  - VisionCameraBarcodesScanner (from `../node_modules/react-native-vision-camera-barcodes-scanner`)
   - "VisionCameraCodeScanner (from `../node_modules/@mgcrea/vision-camera-barcode-scanner`)"
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
   trunk:
+    - AppMetricaAdSupport
+    - AppMetricaAnalytics
+    - AppMetricaCore
+    - AppMetricaCoreExtension
+    - AppMetricaCoreUtils
+    - AppMetricaCrashes
+    - AppMetricaEncodingUtils
+    - AppMetricaFMDB
+    - AppMetricaHostState
+    - AppMetricaLog
+    - AppMetricaNetwork
+    - AppMetricaPlatform
+    - AppMetricaProtobuf
+    - AppMetricaProtobufUtils
+    - AppMetricaStorageUtils
+    - AppMetricaWebKit
     - BEMCheckBox
     - Bolts
     - Firebase
@@ -2100,23 +2158,17 @@ SPEC REPOS:
     - FirebaseSharedSwift
     - GoogleAppMeasurement
     - GoogleDataTransport
-    - GoogleMLKit
-    - GoogleToolboxForMac
     - GoogleUtilities
-    - GoogleUtilitiesComponents
-    - GTMSessionFetcher
     - InputMask
-    - MLImage
-    - MLKitBarcodeScanning
-    - MLKitCommon
-    - MLKitVision
+    - KSCrash
     - nanopb
     - PromisesObjC
     - PromisesSwift
     - SocketRocket
-    - YandexMobileMetrica
 
 EXTERNAL SOURCES:
+  appmetrica-react-native-analytics:
+    :path: "../node_modules/@appmetrica/react-native-analytics"
   boost:
     :podspec: "../node_modules/react-native/third-party-podspecs/boost.podspec"
   BVLinearGradient:
@@ -2192,8 +2244,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   React-microtasksnativemodule:
     :path: "../node_modules/react-native/ReactCommon/react/nativemodule/microtasks"
-  react-native-appmetrica:
-    :path: "../node_modules/@gennadysx/react-native-appmetrica"
   react-native-cookies:
     :path: "../node_modules/@react-native-cookies/cookies"
   react-native-device-brightness:
@@ -2304,14 +2354,29 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-vector-icons"
   VisionCamera:
     :path: "../node_modules/react-native-vision-camera"
-  VisionCameraBarcodesScanner:
-    :path: "../node_modules/react-native-vision-camera-barcodes-scanner"
   VisionCameraCodeScanner:
     :path: "../node_modules/@mgcrea/vision-camera-barcode-scanner"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
+  appmetrica-react-native-analytics: 13630d851fa2ca2b1dcee0ea409da19b549a1206
+  AppMetricaAdSupport: 493b39102f35b69a2db4c3656d776ab69890b1df
+  AppMetricaAnalytics: f01c797b9a413bd1825bb32faa8cf1ad2ff2cca3
+  AppMetricaCore: 9892526623a03d946f700aba8ee6ed0df77f4e80
+  AppMetricaCoreExtension: 953e911a544e0b4349b01b5032cdecab88f345fc
+  AppMetricaCoreUtils: 00ef934044dbe5515d9ce5b3b4020695abecb5df
+  AppMetricaCrashes: 31d4274b67c11a737e359727b954d51cafd11f53
+  AppMetricaEncodingUtils: 807366100e5be16bc6138e6f87ea739f707500b3
+  AppMetricaFMDB: 81844d8e01994696ebe37eeb8484dbf90e6ffb62
+  AppMetricaHostState: d7241335f6dd9d2e7553cf2d24cceb515e3d94ce
+  AppMetricaLog: 527a12413d267fe421b5fcd28e5435758f569f4d
+  AppMetricaNetwork: 9a479c29094a62e01c976a306846637df36f8682
+  AppMetricaPlatform: 7c5cd23c32268612d51b4122ca3c9df4052265bb
+  AppMetricaProtobuf: c7a6c851aa8a1a035776f4821334b593c546abd2
+  AppMetricaProtobufUtils: d0aa7b2ab478390aad3134451fb9c3098b9f2f25
+  AppMetricaStorageUtils: 8702c65d91a5e32dafcffbfae6af55b2cf767875
+  AppMetricaWebKit: 738d64d10f59d36a4b0db0e5565d55064f985b51
   BEMCheckBox: 5ba6e37ade3d3657b36caecc35c8b75c6c2b1a4e
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   boost: 4cb898d0bf20404aab1850c656dcea009429d6c1
@@ -2337,17 +2402,10 @@ SPEC CHECKSUMS:
   glog: 69ef571f3de08433d766d614c73a9838a06bf7eb
   GoogleAppMeasurement: f9de05ee17401e3355f68e8fc8b5064d429f5918
   GoogleDataTransport: 6c09b596d841063d76d4288cc2d2f42cc36e1e2a
-  GoogleMLKit: 97ac7af399057e99182ee8edfa8249e3226a4065
-  GoogleToolboxForMac: d1a2cbf009c453f4d6ded37c105e2f67a32206d8
   GoogleUtilities: ea963c370a38a8069cc5f7ba4ca849a60b6d7d15
-  GoogleUtilitiesComponents: 679b2c881db3b615a2777504623df6122dd20afe
-  GTMSessionFetcher: 5aea5ba6bd522a239e236100971f10cb71b96ab6
   hermes-engine: 8d2103d6c0176779aea4e25df6bb1410f9946680
   InputMask: 71d291dc54d2deaeac6512afb6ec2304228c0bb7
-  MLImage: 1824212150da33ef225fbd3dc49f184cf611046c
-  MLKitBarcodeScanning: 10ca0845a6d15f2f6e911f682a1998b68b973e8b
-  MLKitCommon: afec63980417d29ffbb4790529a1b0a2291699e1
-  MLKitVision: e858c5f125ecc288e4a31127928301eaba9ae0c1
+  KSCrash: 6104c0ff6df6818d69b706f72c5152f0ac2c2236
   nanopb: 438bc412db1928dac798aa6fd75726007be04262
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   PromisesSwift: 9d77319bbe72ebf6d872900551f7eeba9bce2851
@@ -2381,7 +2439,6 @@ SPEC CHECKSUMS:
   React-logger: 4072f39df335ca443932e0ccece41fbeb5ca8404
   React-Mapbuffer: 714f2fae68edcabfc332b754e9fbaa8cfc68fdd4
   React-microtasksnativemodule: 4943ad8f99be8ccf5a63329fa7d269816609df9e
-  react-native-appmetrica: c606f811d799040dee1db43a4348bba9ef1b6816
   react-native-cookies: f54fcded06bb0cda05c11d86788020b43528a26c
   react-native-device-brightness: 886cfbfb49a32b6de4ccfc1f720776dc5f381d24
   react-native-hole-view: 6935448993bac79f2b5a4ad7e9741094cf810679
@@ -2438,9 +2495,7 @@ SPEC CHECKSUMS:
   RNVectorIcons: 6382277afab3c54658e9d555ee0faa7a37827136
   SocketRocket: abac6f5de4d4d62d24e11868d7a2f427e0ef940d
   VisionCamera: 3b7cfecebbcb3871c4dd3fb47791b96a47fe5371
-  VisionCameraBarcodesScanner: 56d9fc3f8b9f1220947f52364d238a6f70a3a5fb
   VisionCameraCodeScanner: a104d55c13dccce4229c4d8a81b7af93c6300e4c
-  YandexMobileMetrica: f5368ee93f286c793d73b58da00929babfc897c1
   Yoga: 4ef80d96a5534f0e01b3055f17d1e19a9fc61b63
 
 PODFILE CHECKSUM: c05c62d3c96f1c4059646c68054d16d760b94cd4

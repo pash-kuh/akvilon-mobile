@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   StyleSheet,
   StatusBar,
@@ -11,39 +11,39 @@ import {
   Easing,
   Vibration
 } from 'react-native';
-
-import {runOnJS} from 'react-native-reanimated';
+import { runOnJS } from 'react-native-reanimated';
 import {
   useCameraDevices,
   Camera,
   useFrameProcessor,
   useCodeScanner,
+  CodeType,
 } from "react-native-vision-camera";
-import {widthToDp, heightToDp} from 'rn-responsive-screen';
-import {useNavigation} from '@react-navigation/native';
-import {typography} from '@src/assets/style/typography.style';
-import {api} from '@src/helpers/request';
-import {RNHoleView} from 'react-native-hole-view';
-import {setSelfServices} from '@src/store/modules/selfServiceData/SelfServiceReducer';
-import {useDispatch, useSelector} from 'react-redux';
-import {RootState} from '@src/store';
-import {SelfServiceDrawer} from '@src/components/drawers/selfServiceDrawer';
+import { widthToDp, heightToDp } from 'rn-responsive-screen';
+import { useNavigation } from '@react-navigation/native';
+import { typography } from '@src/assets/style/typography.style';
+import { api } from '@src/helpers/request';
+import { RNHoleView } from 'react-native-hole-view';
+import { setSelfServices } from '@src/store/modules/selfServiceData/SelfServiceReducer';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '@src/store';
+import { SelfServiceDrawer } from '@src/components/drawers/selfServiceDrawer';
+import { BARCODE_TYPES } from '@src/helpers/constants';
 
 /**
  * Сканер штрихкодов
  *
  * @category CameraScreen Screen
  */
-const BarcodeScanner = ({goHome, goNotFound, openProduct, city}) => {
+const BarcodeScanner = ({ goHome, goNotFound, openProduct, city }) => {
   const navigation = useNavigation();
   const devices = useCameraDevices();
   const device = devices.find(({ position }) => position === "back");
   const defaultSearchStatus = 'Расположите штрих-код внутри выделенной области';
-  const {config} = useSelector((s: RootState) => s);
+  const { config } = useSelector((s: RootState) => s);
   const dispatch = useDispatch();
 
   const [openSelfService, setOpenSelfService] = useState<boolean>(false);
-  const [barcodes, setBarcodes] = useState<string[]>([]);
   const [barcode, setBarcode] = useState('');
   const [hasPermission, setHasPermission] = useState(false);
   const [isScanned, setIsScanned] = useState(false);
@@ -79,10 +79,6 @@ const BarcodeScanner = ({goHome, goNotFound, openProduct, city}) => {
     if (isShowLoading) {
       handleAnimation();
     }
-    return () => {
-      isShowLoading;
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isShowLoading]);
 
   const interpolateRotating = rotateAnimation.interpolate({
@@ -114,42 +110,29 @@ const BarcodeScanner = ({goHome, goNotFound, openProduct, city}) => {
 
   useEffect(() => {
     toggleActiveState();
-    return () => {
-      [barcodes];
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [barcodes]);
+  }, [barcode]);
 
   useEffect(() => {
     if (isNotFound) {
       resetScanning();
       goNotFound();
     }
-    return () => {
-      isNotFound;
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isNotFound]);
 
-  /** функция-оболочка, чтобы записать из worklet в state */
-  const workletBarcodes = (detectedBarcode: string[]) => {
-    setBarcodes(detectedBarcode);
-  };
-
-  const frameProcessor = useFrameProcessor((frame) => {
-    'worklet';
-    const detectedBarcodes = useCodeScanner({
-        codeTypes: ['qr', 'ean-13', "code-39", "code-128", "code-93"],
-        onCodeScanned: codes => codes
+  const codeScanner = useCodeScanner({
+    codeTypes: BARCODE_TYPES as CodeType[],
+    onCodeScanned: codes => {
+      if (codes.length) {
+        setBarcode(codes[0].value);
       }
-    );
-    runOnJS(workletBarcodes)(detectedBarcodes);
-  }, []);
+    }
+  }
+  );
 
   async function checkBarcode(curBarcode) {
     try {
       const {
-        data: {data},
+        data: { data },
       } = await api(config.apiUrl)(
         `search/?cityId=${city}&q=${curBarcode}&mode=barcode&page=1&size=1&mode=barcode`,
       );
@@ -176,15 +159,12 @@ const BarcodeScanner = ({goHome, goNotFound, openProduct, city}) => {
   }
 
   const toggleActiveState = async () => {
-    if (barcodes && barcodes.length > 0 && isScanned === false) {
+    if (barcode && isScanned === false) {
       setIsShowLoading(true);
       setSearchStatus('Распознаем код...');
-      if ('rawValue' in barcodes[0]) {
-        setBarcode(barcodes[0].rawValue);
-      }
+
       if (barcode && !openSelfService) {
         setIsScanned(true);
-        setBarcodes([]);
         setIsCameraActive(false);
         await checkBarcode(barcode);
       }
@@ -216,8 +196,7 @@ const BarcodeScanner = ({goHome, goNotFound, openProduct, city}) => {
           style={StyleSheet.absoluteFill}
           device={device}
           isActive={isCameraActive}
-          frameProcessor={frameProcessor}
-          frameProcessorFps={5}
+          codeScanner={codeScanner}
           audio={false}
           torch={isTorch ? 'on' : 'off'}
         />
