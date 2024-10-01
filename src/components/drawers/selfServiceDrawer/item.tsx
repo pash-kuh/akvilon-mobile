@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import {GREY_3, WHITE} from '@src/assets/style/variable.style';
+import React, { useEffect, useState } from 'react';
+import { GREY_3, WHITE } from '@src/assets/style/variable.style';
 import UnselectedLikeSvg from '@src/components/icons/unselectedLike';
 import {
     Image,
@@ -12,15 +12,15 @@ import {
 import Price from '@src/components/common/Price';
 import SelectedLikeSvg from '@src/components/icons/selectedLike';
 import getImageUrl from '@src/helpers/getImageUrl';
-import {MultiplyBlendColor} from 'react-native-image-filter-kit';
+import { MultiplyBlendColor } from 'react-native-image-filter-kit';
 import LinearGradient from 'react-native-linear-gradient';
-import {useDispatch, useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
     setAction,
     setRoute,
     setTab,
 } from '@src/store/modules/webview/WebviewReducer';
-import {StackActions, useNavigation} from '@react-navigation/native';
+import { StackActions, useNavigation } from '@react-navigation/native';
 import {
     addFavorite,
     removeFavorite,
@@ -29,10 +29,10 @@ import {
     fetchAddFavorites,
     fetchRemoveFavorites,
 } from '@src/store/modules/favorites/FavoriteActions';
-import {RootState} from '@src/store';
-import {LiquidationItem} from '@src/store/modules/liquidation/LiquidationTypes';
+import { RootState } from '@src/store';
+import { LiquidationItem } from '@src/store/modules/liquidation/LiquidationTypes';
 
-const {width: viewportWidth} = Dimensions.get('window');
+const { width: viewportWidth } = Dimensions.get('window');
 const SLIDE_WIDTH = Math.round(viewportWidth / 2.45);
 const ITEM_HORIZONTAL_MARGIN = 8;
 const ITEM_WIDTH = SLIDE_WIDTH + ITEM_HORIZONTAL_MARGIN * 2;
@@ -43,8 +43,8 @@ type Props = {
     item: LiquidationItem;
 };
 
-function SelfServiceItemCard({liquidation, item}: Props) {
-    const {favorites, config, user} = useSelector((s: RootState) => s);
+function SelfServiceItemCard({ liquidation, item }: Props) {
+    const { favorites, config, user } = useSelector((s: RootState) => s);
     const dispatch = useDispatch();
     const navigation = useNavigation();
     const [like, setLike] = useState(false);
@@ -93,12 +93,12 @@ function SelfServiceItemCard({liquidation, item}: Props) {
         setLike(!like);
         if (!checkOnFavorites()) {
             if (user?.token) {
-                dispatch(addFavorite({id: item.id, code: item.productCode}));
+                dispatch(addFavorite({ id: item.id, code: item.productCode }));
 
                 let favoritesArray = favorites;
                 favoritesArray = [
                     ...favoritesArray,
-                    {id: item.id, code: item.productCode},
+                    { id: item.id, code: item.productCode },
                 ];
                 const mapperForFetch = favoritesArray.map((item) => item.id);
                 dispatch(
@@ -109,7 +109,7 @@ function SelfServiceItemCard({liquidation, item}: Props) {
                     }),
                 );
             } else {
-                dispatch(addFavorite({id: item.id, code: item.productCode}));
+                dispatch(addFavorite({ id: item.id, code: item.productCode }));
                 console.log(item.id, '----', item.productCode);
             }
         } else {
@@ -157,14 +157,14 @@ function SelfServiceItemCard({liquidation, item}: Props) {
                 <MultiplyBlendColor
                     dstImage={
                         <Image
-                            source={{uri: generateImageLink()}}
+                            source={{ uri: generateImageLink() }}
                             style={style.goodItemCardImage}
                         />
                     }
                     srcColor={WHITE}
                 />
                 <View style={style.body}>
-                    <Text numberOfLines={2} style={style.goodItemCardDescription}>
+                    <Text numberOfLines={2} ellipsizeMode='tail' style={style.goodItemCardDescription}>
                         {item.name ? item.name : 'Отсутствует имя'}
                     </Text>
                     <View style={style.price}>
@@ -188,39 +188,39 @@ function SelfServiceItemCard({liquidation, item}: Props) {
 
 export default React.memo(SelfServiceItemCard);
 
-export {SLIDE_WIDTH, ITEM_HORIZONTAL_MARGIN, ITEM_WIDTH, SLIDER_WIDTH};
+export { SLIDE_WIDTH, ITEM_HORIZONTAL_MARGIN, ITEM_WIDTH, SLIDER_WIDTH };
 
 const style = StyleSheet.create({
     goodItemCardContent: {
         flexDirection: 'row',
-        borderRadius: 8,
-        paddingTop: 10,
-        paddingBottom: 10
+        height: 88,
+        paddingTop: 8,
+        paddingBottom: 8,
+        paddingLeft: 8,
+        paddingRight: 4,
+        gap: 8,
     },
     goodItemCardImage: {
-        marginLeft: 4,
-        marginBottom: 4,
-        marginRight: 4,
+        backgroundColor: WHITE,
         borderRadius: 6,
         width: 48,
         height: 48,
         resizeMode: 'contain',
     },
+    body: {
+        flexDirection: 'column',
+        flex: 1,
+        height: 72,
+    },
     goodItemCardDescription: {
-        width: 240,
-        height: 35,
+        height: 32,
         fontFamily: 'PTRootUI-Regular',
         fontSize: 13,
         lineHeight: 16,
         letterSpacing: 0.02,
-},
+    },
     price: {
         paddingTop: 4,
-    },
-    body: {
-        flexDirection: 'column',
-        width: 240,
-        height: 72,
     },
     goSvg: {
         marginLeft: 4

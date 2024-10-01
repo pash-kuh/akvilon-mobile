@@ -22,8 +22,9 @@ import {
 import dynamicLinks from '@react-native-firebase/dynamic-links';
 import DeviceInfo from 'react-native-device-info';
 import { getVersionNumber } from '@src/store/modules/user/UserActions';
-import AppMetrica from '@appmetrica/react-native-analytics';
+
 import { LogBox } from 'react-native';
+import AppMetrica from '@appmetrica/react-native-analytics';
 LogBox.ignoreLogs(['new NativeEventEmitter']);
 
 export default function App() {

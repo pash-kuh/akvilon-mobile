@@ -1,9 +1,9 @@
 import React from 'react';
-import {BRAND_RED_50, GREY_3} from '@src/assets/style/variable.style';
+import { BRAND_RED_50, GREY_3, WHITE } from '@src/assets/style/variable.style';
 import DrawerComponent from '@src/components/general/drawer/DrawerComponent';
-import {SelfServiceIcon} from '@src/components/icons/selfServiceDrawerIcon';
-import {RootState} from '@src/store';
-import {setSelfServices} from '@src/store/modules/selfServiceData/SelfServiceReducer';
+import { SelfServiceIcon } from '@src/components/icons/selfServiceDrawerIcon';
+import { RootState } from '@src/store';
+import { setSelfServices } from '@src/store/modules/selfServiceData/SelfServiceReducer';
 import {
   StyleSheet,
   Text,
@@ -12,16 +12,16 @@ import {
   Pressable,
   Platform,
 } from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
-import {Button} from 'react-native-paper';
-import {StackActions, useNavigation} from '@react-navigation/native';
+import { useDispatch, useSelector } from 'react-redux';
+import { Button } from 'react-native-paper';
+import { StackActions, useNavigation } from '@react-navigation/native';
 import {
   setRoute,
   setTab,
   setAction,
 } from '@src/store/modules/webview/WebviewReducer';
 import SelfServiceItemCard from './item';
-import {typography} from "@src/assets/style/typography.style";
+import { typography } from "@src/assets/style/typography.style";
 
 /**
  * Всплывающее окно для уточнения самооплаты
@@ -43,7 +43,7 @@ export const SelfServiceDrawer = ({
   close,
   onPressTakeIt,
 }: SelfServiceInterface) => {
-  let {selfService} = useSelector((s: RootState) => s);
+  let { selfService } = useSelector((s: RootState) => s);
   const dispatch = useDispatch();
   const navigation = useNavigation();
 
@@ -84,10 +84,10 @@ export const SelfServiceDrawer = ({
     <DrawerComponent
       title=""
       close={closeHandle}
-      borderRadius={{topLeft: 12, topRight: 12}}
-      margin={Platform.OS === 'ios' ? 100 : 0}
+      borderRadius={{ topLeft: 12, topRight: 12 }}
+      margin={0}
       content={
-        <SafeAreaView style={style.containerMain}>
+        // <SafeAreaView style={style.containerMain}>
           <View style={style.modalContent}>
             <View style={style.textBlockMain}>
               <View style={style.icon}>
@@ -112,7 +112,7 @@ export const SelfServiceDrawer = ({
               <Text style={style.buttonText}>Возьму с собой</Text>
             </Button>
           </View>
-        </SafeAreaView>
+        // </SafeAreaView>
       }
     />
   );
@@ -120,22 +120,22 @@ export const SelfServiceDrawer = ({
 
 const style = StyleSheet.create({
   /** Контейнер */
-  containerMain: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 490,
-  },
+  // containerMain: {
+  //   flex: 1,
+  //   alignItems: 'center',
+  //   justifyContent: 'center',
+  //   marginBottom: 490,
+  // },
   modalContent: {
     paddingTop: 0,
     paddingLeft: 16,
-    paddingBottom: 24,
+    // paddingBottom: 24,
     paddingRight: 16,
-    position: 'absolute',
-    top: 0,
+    // position: 'absolute',
+    // top: 0,
   },
   textBlockMain: {
-    position: 'relative',
+    // position: 'relative',
     marginBottom: 32,
   },
   header: {
@@ -159,21 +159,20 @@ const style = StyleSheet.create({
     justifyContent: 'center',
   },
   product: {
-    width: 328,
+    width: '100%',
     borderRadius: 8,
     backgroundColor: GREY_3,
   },
   button: {
     marginTop: 32,
-    marginBottom: 24,
     height: 48,
+    borderRadius: 4,
     backgroundColor: BRAND_RED_50,
   },
   buttonText: {
-    width: 328,
     letterSpacing: 0,
     ...typography('lg', 'medium'),
-    color: '#fff',
+    color: WHITE,
     textTransform: 'none',
   },
 });
