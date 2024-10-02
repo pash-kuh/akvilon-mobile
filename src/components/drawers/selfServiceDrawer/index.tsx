@@ -8,9 +8,7 @@ import {
   StyleSheet,
   Text,
   View,
-  SafeAreaView,
   Pressable,
-  Platform,
 } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from 'react-native-paper';
@@ -87,7 +85,6 @@ export const SelfServiceDrawer = ({
       borderRadius={{ topLeft: 12, topRight: 12 }}
       margin={0}
       content={
-        // <SafeAreaView style={style.containerMain}>
           <View style={style.modalContent}>
             <View style={style.textBlockMain}>
               <View style={style.icon}>
@@ -112,7 +109,6 @@ export const SelfServiceDrawer = ({
               <Text style={style.buttonText}>Возьму с собой</Text>
             </Button>
           </View>
-        // </SafeAreaView>
       }
     />
   );
@@ -120,22 +116,14 @@ export const SelfServiceDrawer = ({
 
 const style = StyleSheet.create({
   /** Контейнер */
-  // containerMain: {
-  //   flex: 1,
-  //   alignItems: 'center',
-  //   justifyContent: 'center',
-  //   marginBottom: 490,
-  // },
+
   modalContent: {
     paddingTop: 0,
     paddingLeft: 16,
-    // paddingBottom: 24,
+    paddingBottom: 30,
     paddingRight: 16,
-    // position: 'absolute',
-    // top: 0,
   },
   textBlockMain: {
-    // position: 'relative',
     marginBottom: 32,
   },
   header: {

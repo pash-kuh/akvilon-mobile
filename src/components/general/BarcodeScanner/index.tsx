@@ -3,7 +3,6 @@ import {
   StyleSheet,
   StatusBar,
   Text,
-  SafeAreaView,
   View,
   Image,
   TouchableOpacity,
@@ -27,6 +26,7 @@ import { setSelfServices } from '@src/store/modules/selfServiceData/SelfServiceR
 import { RNHoleView } from 'react-native-hole-view';
 import { SelfServiceDrawer } from '@src/components/drawers/selfServiceDrawer';
 import { BARCODE_TYPES } from '@src/helpers/constants';
+import { GREY_90 } from '@src/assets/style/variable.style';
 
 /**
  * Сканер штрихкодов
@@ -201,74 +201,87 @@ const BarcodeScanner = ({ goHome, goNotFound, openProduct, city }) => {
   return (
     device != null &&
     hasPermission && (
-      <SafeAreaView style={styles.containerMain}>
-        <StatusBar barStyle="light-content" backgroundColor="#000000" />
-        <Camera
-          style={StyleSheet.absoluteFill}
-          device={device}
-          isActive={isCameraActive}
-          codeScanner={codeScanner}
-          audio={false}
-          torch={isTorch ? 'on' : 'off'}
-        />
-        <RNHoleView
-          holes={[
-            {
-              x: widthToDp('8.5%'),
-              y: heightToDp('46%'),
-              width: widthToDp('83%'),
-              height: heightToDp('38%'),
-              borderRadius: 10,
-            },
-          ]}
-          style={styles.rnholeView}
-        />
-        <View style={styles.cornersContainer}>
-          <View style={[isShowLoading ? null : styles._hidden]}>
-            <Animated.Image
-              style={[animatedStyle, styles.loader]}
-              source={require('@src/assets/svg/loader.png')}
-            />
+      <View style={styles.safeAreaContainer}>
+        <StatusBar hidden={true} />
+        <View style={[styles.containerMain]}>
+          <Camera
+            style={StyleSheet.absoluteFill}
+            device={device}
+            isActive={isCameraActive}
+            codeScanner={codeScanner}
+            audio={false}
+            torch={isTorch ? 'on' : 'off'}
+          />
+          <RNHoleView
+            holes={[
+              {
+                x: widthToDp('8.5%'),
+                y: heightToDp('46%'),
+                width: widthToDp('83%'),
+                height: heightToDp('38%'),
+                borderRadius: 10,
+              },
+            ]}
+            style={styles.rnholeView}
+          />
+          <View style={styles.cornersContainer}>
+            <View style={[isShowLoading ? null : styles._hidden]}>
+              <Animated.Image
+                style={[animatedStyle, styles.loader]}
+                source={require('@src/assets/svg/loader.png')}
+              />
+            </View>
           </View>
-        </View>
-        <View style={styles.topView}>
-          <TouchableOpacity
-            style={styles.topIcon}
-            onPress={() => handleClose()}>
-            <Image source={require('@src/assets/svg/close_white.png')} />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.topIcon}
-            onPress={() => handleTorch()}>
-            {isTorch ? (
-              <TouchableOpacity onPress={() => handleTorch()}>
-                <Image source={require('@src/assets/svg/flash_on.png')} />
-              </TouchableOpacity>
-            ) : (
-              <TouchableOpacity onPress={() => handleTorch()}>
-                <Image source={require('@src/assets/svg/flash_off.png')} />
-              </TouchableOpacity>
-            )}
-          </TouchableOpacity>
-        </View>
-        <View style={styles.bottomView}>
-          <Text style={styles.textStyle}>{searchStatus}</Text>
-        </View>
+          <View style={styles.topView}>
+            <TouchableOpacity
+              style={styles.topIcon}
+              onPress={() => handleClose()}>
+              <Image source={require('@src/assets/svg/close_white.png')} />
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.topIcon}
+              onPress={() => handleTorch()}>
+              {isTorch ? (
+                <TouchableOpacity onPress={() => handleTorch()}>
+                  <Image source={require('@src/assets/svg/flash_on.png')} />
+                </TouchableOpacity>
+              ) : (
+                <TouchableOpacity onPress={() => handleTorch()}>
+                  <Image source={require('@src/assets/svg/flash_off.png')} />
+                </TouchableOpacity>
+              )}
+            </TouchableOpacity>
+          </View>
+          <View style={styles.bottomView}>
+            <Text style={styles.textStyle}>{searchStatus}</Text>
+          </View>
 
-        {openSelfService && (
-          <View style={styles.modal}>
-            <SelfServiceDrawer
-              close={onCloseSelfServiceDriver}
-              onPressTakeIt={handleClose}
-            />
-          </View>
-        )}
-      </SafeAreaView>
+          {openSelfService && (
+            <View style={styles.modal}>
+              <SelfServiceDrawer
+                close={onCloseSelfServiceDriver}
+                onPressTakeIt={handleClose}
+              />
+            </View>
+          )}
+        </View>
+      </View>
     )
   );
 };
 
 const styles = StyleSheet.create({
+  safeAreaContainer: {
+    position: 'absolute',
+    paddingTop: 50,
+    paddingBottom: 50,
+    top: -50,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: GREY_90,
+    height: "120%",
+  },
   /** RN Hole */
   rnholeView: {
     position: 'absolute',

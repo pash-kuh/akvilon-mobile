@@ -6,7 +6,7 @@ import tabRoutes from '@src/mock/tabroutes';
 import {CommonActions, useNavigation} from '@react-navigation/native';
 import {useDispatch, useSelector} from 'react-redux';
 import {AppDispatch, RootState} from '@src/store';
-import {BRAND_RED_50, GREY_70} from '@src/assets/style/variable.style';
+import {BRAND_RED_50, GREY_70, TAB_BAR_HEIGHT} from '@src/assets/style/variable.style';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {setTab} from '@src/store/modules/webview/WebviewReducer';
 import {ParamList} from '@src/types/route';
@@ -81,7 +81,7 @@ export function TabBar() {
     <Appbar
       style={[
         style.container,
-        {display: webview.hideTabBar ? 'none' : 'flex'},
+        {display: webview.hideTabBar ? 'none' : 'flex', height: webview.hideTabBar ? 0 : TAB_BAR_HEIGHT},
       ]}>
       {routes.map((route, key) => {
         const isCart = route.name === 'CartMainScreen' && !!cart.cartCount;
