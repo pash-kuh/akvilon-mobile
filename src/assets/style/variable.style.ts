@@ -11,4 +11,4 @@ export const PRIMARY_50 = '#007DD1';
 export const SERACH_GRAY = '#F4F5F6';
 export const WHITE = '#FFF';
 
-export const TAB_BAR_HEIGHT = 50;
+export const TAB_BAR_HEIGHT = 64;

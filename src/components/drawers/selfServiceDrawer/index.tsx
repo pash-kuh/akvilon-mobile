@@ -120,7 +120,7 @@ const style = StyleSheet.create({
   modalContent: {
     paddingTop: 0,
     paddingLeft: 16,
-    paddingBottom: 30,
+    paddingBottom: 50,
     paddingRight: 16,
   },
   textBlockMain: {

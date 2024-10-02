@@ -274,7 +274,7 @@ const styles = StyleSheet.create({
   safeAreaContainer: {
     position: 'absolute',
     paddingTop: 50,
-    paddingBottom: 50,
+    paddingBottom: 80,
     top: -50,
     left: 0,
     right: 0,
