@@ -20,7 +20,6 @@
 [redux-thunk](https://www.npmjs.com/package/redux-thunk)\
 [react-native-firebase](https://rnfirebase.io/)\
 [@kichiyaki/react-native-barcode-generator](https://github.com/Kichiyaki/react-native-barcode-generator)\
-[@adrianso/react-native-device-brightness](https://www.npmjs.com/package/@adrianso/react-native-device-brightness)\
 [react-native-appmetrica](https://www.npmjs.com/package/react-native-appmetrica)\
 [react-native-device-info](https://github.com/react-native-device-info/react-native-device-info)\
 [react-native-image-filter-kit](https://www.npmjs.com/package/react-native-image-filter-kit)\

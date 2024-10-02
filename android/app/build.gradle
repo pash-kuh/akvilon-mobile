@@ -126,7 +126,6 @@ def useIntlJsc = false
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-    namespace "com.akvilonmobile"
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -197,15 +196,15 @@ android {
 dependencies {
     implementation 'com.yandex.android:mobmetricalib:5.3.0'
     //noinspection GradleDynamicVersion,GradleDependency
-    implementation 'com.facebook.soloader:soloader:0.10.4+'
+    implementation 'com.facebook.soloader:soloader:0.12.1'
     implementation "androidx.work:work-runtime:2.9.1"
     implementation fileTree(dir: "libs", include: ["*.jar"])
     //noinspection GradleDynamicVersion
-    implementation "com.facebook.react:react-native:+"  // From node_modules
+    implementation 'com.facebook.react:react-native:0.20.1'  // From node_modules
 
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 
-    implementation "com.facebook.android:facebook-android-sdk:4.28.0"
+    implementation 'com.facebook.android:facebook-android-sdk:17.0.2'
 
     implementation "com.android.support:multidex:2.0.1"
 
@@ -216,16 +215,16 @@ dependencies {
     implementation ("com.yandex.android:mobmetricalib:5.3.0") {
         exclude group: 'com.yandex.android', module: 'mobmetricalib-identifiers'
     }
-    debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
+    debugImplementation('com.facebook.flipper:flipper:0.267.1') {
         exclude group:'com.facebook.fbjni'
     }
 
-    debugImplementation("com.facebook.flipper:flipper-network-plugin:${FLIPPER_VERSION}") {
+    implementation("com.facebook.flipper:flipper-network-plugin:0.267.1") {
         exclude group:'com.facebook.flipper'
         exclude group:'com.squareup.okhttp3', module:'okhttp'
     }
 
-    debugImplementation("com.facebook.flipper:flipper-fresco-plugin:${FLIPPER_VERSION}") {
+    implementation("com.facebook.flipper:flipper-fresco-plugin:0.182.0") {
         exclude group:'com.facebook.flipper'
     }
 

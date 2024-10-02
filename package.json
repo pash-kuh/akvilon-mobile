@@ -18,7 +18,6 @@
     "build:ios": "react-native bundle --entry-file='index.js' --bundle-output='./ios/main.jsbundle' --dev=false --platform='ios'"
   },
   "dependencies": {
-    "@adrianso/react-native-device-brightness": "^1.2.7",
     "@appmetrica/react-native-analytics": "^3.2.0",
     "@babel/plugin-proposal-class-properties": "^7.18.6",
     "@babel/plugin-proposal-nullish-coalescing-operator": "^7.18.6",
@@ -27,7 +26,6 @@
     "@babel/preset-react": "^7.16.7",
     "@babel/runtime": "^7.20.0",
     "@kichiyaki/react-native-barcode-generator": "^0.6.7",
-    "@mgcrea/vision-camera-barcode-scanner": "^0.11.2",
     "@react-native-async-storage/async-storage": "^2.0.0",
     "@react-native-community/checkbox": "^0.5.17",
     "@react-native-community/cli": "^11.2.1",
@@ -49,9 +47,9 @@
     "axios": "^1.7.7",
     "metro-react-native-babel-preset": "^0.77.0",
     "moment-timezone": "^0.5.45",
-    "react": "18.3.1",
+    "react": "^18.1.0",
     "react-hook-form": "^7.53.0",
-    "react-native": "0.75.3",
+    "react-native": "^0.73.9",
     "react-native-device-info": "^13.0.0",
     "react-native-hole-view": "^3.0.0-alpha4",
     "react-native-image-filter-kit": "^0.8.0",

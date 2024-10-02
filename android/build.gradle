@@ -4,19 +4,20 @@ buildscript {
         minSdkVersion = 26
         compileSdkVersion = 34
         targetSdkVersion = 34
-        ndkVersion = "26.1.10909125"
-        kotlin_version = "1.9.24"
+        androidXCore = "1.7.0"
+        VisionCameraCodeScanner_compileSdkVersion = 34
+        kotlinVersion = "1.7.10"
     }
     repositories {
         google()
         mavenCentral()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:7.3.1")
+        classpath("com.android.tools.build:gradle:8.1.4")
         classpath("com.google.gms:google-services:4.4.2")
         classpath("com.google.firebase:perf-plugin:1.4.2")
         classpath("com.google.firebase:firebase-crashlytics-gradle:3.0.2")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
     }
 }
 
